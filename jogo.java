@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 //Método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
 public class jogo {
@@ -10,7 +11,7 @@ public class jogo {
             return entrada;
     }
 
-    //Método para fazer com que o jogo moestre o nome do jogador quando for sua vez de jogar:
+    //Método para fazer com que o jogo moestre o nome do jogador quando for sua vez de jogar e anunciar seu nome se for o vencedor do jogo:
     public static String getPersonagem (char simbolo, String escolhaJogador1, String escolhaJogador2) {
         if (simbolo == 'X') {
             return "Paul Deitel";
@@ -210,12 +211,22 @@ public class jogo {
 
                             } while (!acao2.equals ("3x3") && !acao2.equals ("4x4") && !acao2.equals ("5x5"));
                         }
+                        
+                        //Faz o sorteio sobre qual jogador vai começar o jogo:
                         boolean jogoCompleto = false;
                             while (!jogoCompleto) {
                                 tabuleiroJogoDaVelha tabuleiroJogoDaVelha = new tabuleiroJogoDaVelha(acao2);
                                     int moedaJogador1 = 30;
                                         int moedasJogador2 = 30;
-                                            char jogadorAtual = escolhaJogador1.equals ("X") ? 'X': 'O';
+                                            Random random = new Random();
+                                                char jogadorAtual;
+
+                                                    if (random.nextBoolean()) {
+                                                        jogadorAtual = 'X';
+                                                    } else {
+                                                        jogadorAtual = 'O';
+                                                    }
+
                                                     boolean jogando = true;
                                 
                                                     while (jogando) {
@@ -225,6 +236,8 @@ public class jogo {
                                                             //Mostrar o personagem que cada jogador escolheu:
                                                             System.out.println("Jogador 1: (" + escolhaJogador1 + ")");
                                                             System.out.println("Jogador 2: (" + escolhaJogador2 + ")");
+                                                            
+                                                            //Mostra quem é o jogador da vez:
                                                             System.out.println("\nVez do " + getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2));
 
                                                             //Colocar a lógica das perguntas
