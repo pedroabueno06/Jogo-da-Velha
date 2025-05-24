@@ -1,15 +1,15 @@
-import java.util.Random;
+import java.util.Random; //Esta biblioteca faz com que o programa faça um sorteio para ver qual dos jogadores irá fazer a primeira jogada
 import java.util.Scanner;
 //Método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
-public class jogo {
+public class Jogo {
     public static String lerEntrada (Scanner scanner) {
         String entrada = scanner.nextLine();
-             if (entrada.equals ("/")) {
-                        System.out.println("Uma pena você não querer jogar nosso jogo.");
-                           System.exit(0); 
+            if (entrada.equals ("/")) {
+                System.out.println("Uma pena você não querer jogar nosso jogo.");
+                    System.exit(0); 
             }
             return entrada;
-    }
+        }
 
     //Método para fazer com que o jogo moestre o nome do jogador quando for sua vez de jogar e anunciar seu nome se for o vencedor do jogo:
     public static String getPersonagem (char simbolo, String escolhaJogador1, String escolhaJogador2) {
@@ -215,7 +215,7 @@ public class jogo {
                         //Faz o sorteio sobre qual jogador vai começar o jogo:
                         boolean jogoCompleto = false;
                             while (!jogoCompleto) {
-                                tabuleiroJogoDaVelha tabuleiroJogoDaVelha = new tabuleiroJogoDaVelha(acao2);
+                                TabuleiroJogoDaVelha tabuleiroJogoDaVelha = new TabuleiroJogoDaVelha (acao2);
                                     int moedaJogador1 = 30;
                                         int moedasJogador2 = 30;
                                             Random random = new Random();
@@ -239,6 +239,10 @@ public class jogo {
                                                             
                                                             //Mostra quem é o jogador da vez:
                                                             System.out.println("\nVez do " + getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2));
+                                                            System.out.println("Você tem 1 minuto para fazer a sua jogada!");
+
+                                                            Cronometro cronometro = new Cronometro();
+                                                                cronometro.iniciar();
 
                                                             //Colocar a lógica das perguntas
 
@@ -247,6 +251,14 @@ public class jogo {
                                                                 int linha = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
                                                             System.out.println("Digite a coluna do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "): ");
                                                                 int coluna = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
+
+                                                            cronometro.pararCronometro();
+
+                                                            if (cronometro.isTempoEsgotado()) {
+                                                                System.out.println("Você perdeu a vez de jogar pois excedeu o limite de tempo.");
+                                                                    jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X';
+                                                                        continue;
+                                                            }
 
                                                             
                                                             if (tabuleiroJogoDaVelha.realizarJogada(linha, coluna, jogadorAtual)) {
