@@ -11,7 +11,7 @@ public class Jogo {
             return entrada;
         }
 
-    //Método para fazer com que o jogo moestre o nome do jogador quando for sua vez de jogar e anunciar seu nome se for o vencedor do jogo:
+    //Método para fazer com que o jogo mostre o nome do jogador quando for sua vez de jogar e anunciar seu nome se for o vencedor do jogo:
     public static String getPersonagem (char simbolo, String escolhaJogador1, String escolhaJogador2) {
         if (simbolo == 'X') {
             return "Paul Deitel";
