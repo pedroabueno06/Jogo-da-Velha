@@ -1,8 +1,8 @@
-public class linhaColuna {
+public class LinhaColuna {
     private char símbolo;
     private int tamanho;
     
-    public linhaColuna() {
+    public LinhaColuna() {
         this.símbolo = ' ';
     
     }
