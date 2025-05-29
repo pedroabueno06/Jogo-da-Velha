@@ -177,11 +177,11 @@ public class Jogo {
 
                     if (escolhaJogador2.equals ("Paul Deitel (X)")) {
                         System.out.println("\nVocê escolheu ser X.");
-                            System.out.println("Aguarde por mais instruções. \n");
+                            System.out.println("Aguarde por mais instruções. ");
 
                         } else if (escolhaJogador2.equals ("Harvey Deitel (O)")) {
                             System.out.println("\nVocê escolheu ser O.");
-                                System.out.println("Aguarde por mais instruções. \n");
+                                System.out.println("Aguarde por mais instruções. ");
 
                         } else {
                            do { 
@@ -301,7 +301,6 @@ public class Jogo {
                                                                 //Verifica se o jogador errou a pergunta:
                                                                 System.out.println("Sua resposta está incorreta!");
                                                                     errosConsecutivos++;
-                                                                    cronometro.pararCronometro();
 
                                                                 if (errosConsecutivos >= 2) {
                                                                     System.out.println("Você errou duas perguntas consecutivas, portanto sua última jogada será desfeita.");
