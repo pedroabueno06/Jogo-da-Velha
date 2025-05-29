@@ -1,10 +1,15 @@
-public class tabuleiroJogoDaVelha {
+public class TabuleiroJogoDaVelha {
+    public void removerJogada(int linha, int coluna) {
+    if (linha >= 0 && linha < tamanho && coluna >= 0 && coluna < tamanho) {
+        matriz[linha][coluna] = ' ';
+    }
+}
     private char[][] matriz;
     private int tamanho;
     private String tipo;
 
 
-    public tabuleiroJogoDaVelha (String tipo) {
+    public TabuleiroJogoDaVelha (String tipo) {
         this.tipo = tipo;
         switch (tipo) {
             case "3x3":
