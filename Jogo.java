@@ -244,7 +244,7 @@ public class Jogo {
                                                             
                                                             //Mostra quem é o jogador da vez:
                                                             System.out.println("\nVez do " + getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2));
-                                                            System.out.println("Você tem 1 minuto para fazer a sua jogada!");
+                                                            System.out.println("Você tem 1 minuto para responder a pergunta e fazer a sua jogada!");
 
                                                             //inicia o crônometro para o jogador responder a pergunta e fazer sua jogada:
                                                             Cronometro cronometro = new Cronometro();
