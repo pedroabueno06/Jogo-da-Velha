@@ -1,17 +1,12 @@
 import java.util.Random; //Esta biblioteca faz com que o programa faça um sorteio para ver qual dos jogadores irá fazer a primeira jogada
 import java.util.Scanner; 
-public class Jogo {
-    private static int errosConsecutivos = 0; //variável para armazenar os erros consecutivos do jogador
-         private static int[] ultimaJogada = new int[2]; //variável para armazenar a última jogada do jogador
-         private static Perguntas ultimaPerguntaCorreta = null; //Armazena a última pergunta correta respondida pelo jogador
-         private static Perguntas perguntaAnterior = null; //Armazena a última pergunta respondida pelo jogador, para que não que não seja repetida em caso de acerto
-
+public class Jogo {    
     //Método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
     public static String lerEntrada (Scanner scanner) {
         String entrada = scanner.nextLine();
             if (entrada.equals ("/")) {
-                System.out.println("Uma pena você não querer jogar nosso jogo.");
-                    System.exit(0); 
+                    System.out.println("Uma pena você não querer jogar nosso jogo.");
+                        System.exit(0);
             }
             return entrada;
         }
@@ -27,6 +22,15 @@ public class Jogo {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner (System.in);
+        Jogo jogo = new Jogo();
+            int errosConsecutivos = 0; //variável para armazenar os erros consecutivos do jogador
+            int[] ultimaJogada = new int[2]; //variável para armazenar a última jogada do jogador
+            Perguntas ultimaPerguntaCorreta = null; //Armazena a última pergunta correta respondida pelo jogador
+            Perguntas perguntaAnterior = null; //Armazena a última pergunta respondida pelo jogador, para que não que não seja repetida em caso de acerto
+            String dificuldade; // Variável para os jogadores escolherem a dificuldade das perguntas que irão ser feitas durante o jogo
+            String escolhaJogador1; //Váriável para o jogador 1 escolher seu personagem
+            String escolhaJogador2 = ""; //Inicializa a variável com string vazia
+            String vencedor; //Variável que verifica qual jogador é o vencedor do jogo
             
             System.out.println("===Seja bem vindo ao Deitel VOOX===");
                 System.out.println("Digite 0 se quiser saber as regras, 1 se quiser iniciar o jogo ou / para encerrar.");
@@ -122,111 +126,80 @@ public class Jogo {
             }
 
                 System.out.println("Antes de iniciar o jogo, escolha a dificuldade desejada: (Digite 2 para inciante, 3 para intermediário e 4 para avançado) ");
-                    String dificuldade = lerEntrada(scanner);
+                    dificuldade = lerEntrada(scanner);
                 if (dificuldade.equals("2")) {
-                    System.out.println("\nFoi escolhida a dificuldade iniciante!");
+                    System.out.println("\nDificuldade escolhida: Iniciante.");
                         System.out.println("A seguir você receberá mais instruções.");
 
                 } else if (dificuldade.equals ("3")) {
-                    System.out.println("\nFoi escolhida a dificuldade intermediária!");
+                    System.out.println("\nDificuldade escolhida: Intermediária.");
                         System.out.println("A seguir você receberá mais instruções.");
 
                 } else if (dificuldade.equals ("4")) {
-                    System.out.println("\nFoi escolhida a dificuldade avançada!");
+                    System.out.println("\nDificuldade escolhida: Avançada.");
                         System.out.println("A seguir você receberá mais instruções.");
                 }
 
-                System.out.println("\nAgora escolham o personagem com que desejam jogar: \n");
-                    System.out.println("O jogador 1 escolhe primeiro:");
-                        String escolhaJogador1;
-                            System.out.println("Digite Paul Deitel (X) para escolher o X e Harvey Deitel (O) para ser O.");
+                //Escolha dos personagens que serão atribuídos ao X e O:
+                System.out.println("\nEscolha de personagens: \n");
+                    System.out.println("Jogador 1 escolhe primeiro:");
+                        System.out.println("Digite Paul Deitel (X) para escolher o X e Harvey Deitel (O) para ser O.");
                                 escolhaJogador1 = lerEntrada(scanner);
 
-                    if (escolhaJogador1.equals ("Paul Deitel (X)")) {
-                        System.out.println("\nVocê escolheu ser X.");
-                            System.out.println("Aguarde por mais instruções. \n");
+                    while (!escolhaJogador1.equals ("Paul Deitel (X)") && !escolhaJogador1.equals ("Harvey Deitel (O)")) {
+                         System.out.println("\nOpção inválida!");
+                                System.out.println("Digite apenas Paul Deitel (X) para escolher o X e Harvey Deitel (O) para ser O. ");
+                                    escolhaJogador1 = lerEntrada(scanner);
+                    }
 
-                        } else if (escolhaJogador1.equals ("Harvey Deitel (O)")) {
-                            System.out.println("\nVocê escolheu ser O.");
-                                System.out.println("Aguarde por mais instruções. \n");
+                    //O personagem que não for escolhido pelo jogador 1, será atruído automaticamnte ao jogador 2:
+                    if (escolhaJogador1.equals("Paul Deitel (X)")) {
+                        escolhaJogador2 = "Harvey Deitel (O)";
+                            System.out.println("\nJogador 1: Paul Deitel (X)");
+                                System.out.println("Jogador 2: Harvey Deitel (O)");
+                    } else {
+                        escolhaJogador2 = "Paul Deitel (X)";
+                            System.out.println("\nJogador 1: Harvey Deitel (O)");
+                                System.out.println("Jogador 2: Paul Deitel (X) ");
+                    }
 
-                        } else {
-                           do { 
-                               System.out.println("\nOpção inválida!");
-                                    System.out.println("Digite apenas Paul Deitel (X) para escolher o X e Harvey Deitel (O) para ser O. ");
-                                        escolhaJogador1 = lerEntrada(scanner);
-                           } while (!escolhaJogador1.equals ("Paul Deitel (X)") && !escolhaJogador1.equals ("Harvey Deitel (O)"));
-                        }
+                    //Escolha do tipo de tabuleiro:
+                    System.out.println("\nEscolha do tipo de tabuleiro:");
+                    System.out.println("Digite 1 para escolher o tabuleiro 3x3.");
+                    System.out.println("\nDigite 2 para escolher o tabuleiro 4x4.");
+                    System.out.println("\nDigite 3 para escolher o tabuleiro 5x5.");
+                    System.out.println("\nDigite sua escolha de tabuleiro: ");
+                        acao1 = lerEntrada (scanner);
 
-                    System.out.println("\nAgora é a vez do jogador 2: ");
-                        String escolhaJogador2;
+                    if (acao1.equals ("1")) {
+                        System.out.println("\nTabuleiro escolhido: 3x3.");
 
-                        //Loop para armazenar o a escolha do jogador 1 para que o jogador 2 não escolha o mesmo personagem:
+                    } else if (acao1.equals ("2")) {
+                        System.out.println("\nTabuleiro escolhido: 4x4.");
+
+                    } else if (acao1.equals ("3")) {
+                        System.out.println("\nTabuleiro escolhido: 5x5.");
+
+                    } else {
                         do { 
-                            System.out.println("Digite Paul Deitel (X) para escolher o X e Harvey Deitel (O) para ser O.");
-                                escolhaJogador2 = lerEntrada(scanner);
+                            System.out.println("\nOpção inválida!");
+                                System.out.println("Digite apenas 1, 2 ou 3:");
+                                    acao1 = lerEntrada (scanner);
 
-                            if (escolhaJogador2.equals (escolhaJogador1)) {
-                                System.out.println("\nOpção inválida! Por favor, escolha outro personagem.");
-                            
-                            } else if (!escolhaJogador2.equals ("Paul Deitel (X)") && !escolhaJogador2.equals ("Harvey Deitel (O)")) {
-                                System.out.println("\nOpção inválida!");
-                            }
+                    } while (!acao1.equals ("1") && !acao1.equals ("2") && !acao1.equals ("3"));
+                    }
                         
-                        } while (escolhaJogador2.equals (escolhaJogador1) || (!escolhaJogador2.equals ("Paul Deitel (X)") && !escolhaJogador2.equals ("Harvey Deitel (O)")));
+                    BancoPerguntas bancoPerguntas = new BancoPerguntas();
+                    //Faz o sorteio sobre qual jogador vai começar o jogo:
+                    boolean jogoCompleto = false;
+                        while (!jogoCompleto) {
+                            TabuleiroJogoDaVelha tabuleiroJogoDaVelha = new TabuleiroJogoDaVelha (acao1);
+                                int moedaJogador1 = 30;
+                                    int moedasJogador2 = 30;
+                                        Random random = new Random();
+                                            char jogadorAtual;
 
-                    if (escolhaJogador2.equals ("Paul Deitel (X)")) {
-                        System.out.println("\nVocê escolheu ser X.");
-                            System.out.println("Aguarde por mais instruções. ");
-
-                        } else if (escolhaJogador2.equals ("Harvey Deitel (O)")) {
-                            System.out.println("\nVocê escolheu ser O.");
-                                System.out.println("Aguarde por mais instruções. ");
-
-                        } else {
-                           do { 
-                               System.out.println("\nOpção inválida!");
-                                    System.out.println("Digite apenas Paul Deitel (X) para escolher o X e Harvey Deitel (O) para ser O. ");
-                                        escolhaJogador2 = lerEntrada(scanner);
-                           } while (!escolhaJogador2.equals ("Paul Deitel (X)") && !escolhaJogador2.equals ("Harvey Deitel (O)"));
-                        }
-
-                        System.out.println("\nAgora os dois jogadores devem entrar em um consenso para escolher o tipo de tabuleiro que desejam jogar.");
-                        System.out.println("Digite 3x3 para escolher o tabuleiro convencional.");
-                        System.out.println("\nDigite 4x4 para escolher o tabuleiro que possui uma linha e coluna a mais.");
-                        System.out.println("\nDigite 5x5 para escolher o tabuleiro que possui duas linhas e colunas a mais.");
-                        System.out.println("\nDigite sua escolha de tabuleiro: ");
-                            acao1 = lerEntrada (scanner);
-
-                        if (acao1.equals ("3x3")) {
-                            System.out.println("\nFoi escolhido o tabuleiro 3x3.");
-
-                        } else if (acao1.equals ("4x4")) {
-                            System.out.println("\nFoi escolhido o tabuleiro 4x4.");
-
-                        } else if (acao1.equals ("5x5")) {
-                            System.out.println("\nFoi ecolhido o tabuleiro 5x5.");
-
-                        } else {
-                            do { 
-                                System.out.println("\nOpção inválida!");
-                                    System.out.println("Digite apenas 3x3, 4x4 ou 5x5:");
-                                        acao1 = lerEntrada (scanner);
-
-                            } while (!acao1.equals ("3x3") && !acao1.equals ("4x4") && !acao1.equals ("5x5"));
-                        }
-                        
-                        BancoPerguntas bancoPerguntas = new BancoPerguntas();
-                        //Faz o sorteio sobre qual jogador vai começar o jogo:
-                        boolean jogoCompleto = false;
-                            while (!jogoCompleto) {
-                                TabuleiroJogoDaVelha tabuleiroJogoDaVelha = new TabuleiroJogoDaVelha (acao1);
-                                    int moedaJogador1 = 30;
-                                        int moedasJogador2 = 30;
-                                            Random random = new Random();
-                                                char jogadorAtual;
-
-                                                    if (random.nextBoolean()) {
+                                                if (random.nextBoolean()) {
                                                         jogadorAtual = 'X';
                                                     } else {
                                                         jogadorAtual = 'O';
@@ -238,74 +211,78 @@ public class Jogo {
                                                         System.out.println("\nEstado atual do tabuleiro:");
                                                             tabuleiroJogoDaVelha.mostrarTabuleiro();
 
-                                                            //Mostrar o personagem que cada jogador escolheu:
-                                                            System.out.println("Jogador 1: (" + escolhaJogador1 + ")");
-                                                            System.out.println("Jogador 2: (" + escolhaJogador2 + ")");
+                                                    //Mostrar o personagem que cada jogador escolheu:
+                                                    System.out.println("Jogador 1: (" + escolhaJogador1 + ")");
+                                                    System.out.println("Jogador 2: (" + escolhaJogador2 + ")");
                                                             
-                                                            //Mostra quem é o jogador da vez:
-                                                            System.out.println("\nVez do " + getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2));
-                                                            System.out.println("Você tem 1 minuto para responder a pergunta e fazer a sua jogada!");
+                                                    //Mostra quem é o jogador da vez:
+                                                    System.out.println("\nVez do " + getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2));
+                                                    System.out.println("Você tem 1 minuto para responder a pergunta e fazer a sua jogada!");
 
-                                                            //inicia o crônometro para o jogador responder a pergunta e fazer sua jogada:
-                                                            Cronometro cronometro = new Cronometro();
-                                                                cronometro.iniciar();
+                                                    //inicia o crônometro para o jogador responder a pergunta e fazer sua jogada:
+                                                    Cronometro cronometro = new Cronometro();
+                                                        cronometro.iniciar();
 
-                                                            //Faz o sorteio da pergunta e a aplica:
-                                                            Perguntas perguntasAtual;
-                                                            if (perguntaAnterior != null) {
-                                                                    perguntasAtual = perguntaAnterior;
-                                                                    perguntaAnterior = null;
-                                                            } else if (ultimaPerguntaCorreta != null) {
-                                                                    perguntasAtual = ultimaPerguntaCorreta;
-                                                                        ultimaPerguntaCorreta = null; //Faz com que a última pergunta acertada não seja repetida
-                                                                } else {
-                                                                    perguntasAtual = bancoPerguntas.sortearPerguntas(dificuldade);
-                                                                } 
+                                                        //Faz o sorteio da pergunta e a aplica:
+                                                        Perguntas perguntasAtual;
+                                                        if (perguntaAnterior != null) {
+                                                            perguntasAtual = perguntaAnterior;
+                                                                perguntaAnterior = null;
+                                                        } else if (ultimaPerguntaCorreta != null) {
+                                                            perguntasAtual = ultimaPerguntaCorreta;
+                                                                ultimaPerguntaCorreta = null; //Faz com que a última pergunta acertada não seja repetida
+                                                        } else {
+                                                            perguntasAtual = bancoPerguntas.sortearPerguntas(dificuldade);
+                                                        } 
 
-                                                            if (perguntasAtual == null) {
-                                                                System.out.println("Erro ao carregar pergunta. Tente novamente");
-                                                                    cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
-                                                                        continue;
-                                                            }
+                                                        if (perguntasAtual == null) {
+                                                            System.out.println("Erro ao carregar pergunta. Tente novamente");
+                                                                cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
+                                                                    continue;
+                                                        }
 
-                                                                System.out.println("\n=== PERGUNTA ===");
-                                                                    boolean respostaCorreta = perguntasAtual.fazerPergunta(scanner);
+                                                        System.out.println("\n=== PERGUNTA ===");
+                                                            boolean respostaCorreta = perguntasAtual.fazerPergunta(scanner);
 
-                                                            if (respostaCorreta) {
-                                                                System.out.println("Sua resposta está correta!");
-                                                                    errosConsecutivos = 0; //Reinicia os erros consecutivos
+                                                        if (respostaCorreta) {
+                                                            System.out.println("Sua resposta está correta!");
+                                                                errosConsecutivos = 0; //Reinicia os erros consecutivos
                                                                     perguntaAnterior = null;                                                                                      
 
-                                                                //Lógica se o jogador acertar a pergunta:
-                                                                System.out.println("Digite a linha do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "): ");
-                                                                    int linha = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
-                                                                System.out.println("Digite a coluna do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "): ");
-                                                                    int coluna = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
+                                                        //Lógica se o jogador acertar a pergunta:
+                                                        System.out.println("Digite a linha do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "): ");
+                                                            int linha = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
+                                                        System.out.println("Digite a coluna do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "): ");
+                                                            int coluna = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
+                                                        cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
 
-                                                                if (tabuleiroJogoDaVelha.realizarJogada(linha, coluna, jogadorAtual)) {
-                                                                    ultimaJogada[0] = linha; //Armaneza a última jogada feita pelo jogador
-                                                                    ultimaJogada[1] = coluna; //armazena a última jogada feita pelo jogador
+                                                        if (tabuleiroJogoDaVelha.realizarJogada(linha, coluna, jogadorAtual)) {
+                                                            ultimaJogada[0] = linha; //Armaneza a última jogada feita pelo jogador
+                                                                ultimaJogada[1] = coluna; //armazena a última jogada feita pelo jogador
 
-                                                                    //Verifica se venceu o jogo:
-                                                                    if (tabuleiroJogoDaVelha.verificarVitoria(jogadorAtual)) {
-                                                                    String vencedor = getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2);
-                                                                        tabuleiroJogoDaVelha.mostrarTabuleiro();
-                                                                            System.out.println("Parabéns " + vencedor + ", você venceu o jogo!");
-                                                                                jogoCompleto = true;
-                                                                                    jogando = false;
-                                                                                        continue;
-                                                                    }
-                                                                }
+                                                            //Verifica se venceu o jogo:
+                                                            if (tabuleiroJogoDaVelha.verificarVitoria(jogadorAtual)) {
+                                                                vencedor = getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2);
+                                                                    tabuleiroJogoDaVelha.mostrarTabuleiro();
+                                                                        System.out.println("Parabéns " + vencedor + ", você venceu o jogo!");
+                                                                            jogoCompleto = true;
+                                                                                jogando = false;
+                                                                                    continue;
+                                                            }
+                                                        }
                                                             
                                                             } else {
                                                                 //Verifica se o jogador errou a pergunta:
                                                                 System.out.println("Sua resposta está incorreta!");
                                                                     errosConsecutivos++;
+                                                                cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
 
                                                                 if (errosConsecutivos >= 2) {
                                                                     System.out.println("Você errou duas perguntas consecutivas, portanto sua última jogada será desfeita.");
                                                                         tabuleiroJogoDaVelha.removerJogada(ultimaJogada[0], ultimaJogada[1]);
                                                                             errosConsecutivos = 0; //Reinicia os erros consecutivos
+                                                                    cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
+
                                                                 }    
 
                                                             }                                                                
