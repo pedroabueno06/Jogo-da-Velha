@@ -1,5 +1,16 @@
 import java.util.Scanner;
+
 public class Perguntas {
+//Método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
+    public static String lerEntrada (Scanner scanner) {
+        String entrada = scanner.nextLine();
+            if (entrada.equals ("/")) {
+                    System.out.println("Uma pena você não querer jogar nosso jogo.");
+                        System.exit(0);
+            }
+            return entrada;
+        }
+
     //Atributos:
     private String pergunta;
     private String[] alternativas;
@@ -36,7 +47,7 @@ public class Perguntas {
     }
     
     System.out.println("\nDigite o número da resposta (1-" + alternativas.length + "):");
-    String resposta = scanner.nextLine();
+    String resposta = lerEntrada (scanner);
     
     return Integer.parseInt(resposta) == respostaCorreta;
 }
