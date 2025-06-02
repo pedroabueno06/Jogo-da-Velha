@@ -206,7 +206,9 @@ public class Jogo {
                                                     }
 
                                                     boolean jogando = true;
-                                
+
+                                                    Cronometro cronometro = new Cronometro();
+
                                                     while (jogando) {
                                                         System.out.println("\nEstado atual do tabuleiro:");
                                                             tabuleiroJogoDaVelha.mostrarTabuleiro();
@@ -217,10 +219,9 @@ public class Jogo {
                                                             
                                                     //Mostra quem é o jogador da vez:
                                                     System.out.println("\nVez do " + getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2) + ":");
-                                                    System.out.println("Você tem 1 minuto para responder a pergunta e fazer a sua jogada!");
 
                                                     //inicia o crônometro para o jogador responder a pergunta e fazer sua jogada:
-                                                    Cronometro cronometro = new Cronometro();
+                                                    System.out.println("Você tem 1 minuto para responder a pergunta e fazer a sua jogada!");
                                                         cronometro.iniciar();
 
                                                         //Faz o sorteio da pergunta e a aplica:
