@@ -21,10 +21,10 @@ public void iniciar() {
                         System.out.print("\r [Tempo restante: " + segundos + " s] "); //\r faz com que o cursor retorne ao inicio da linha
                         Thread.sleep (1000);
                 } catch (InterruptedException e) {
-                    break;
+                    return;
                 }
             }
-            if (!jogadaFeita) {
+            if (!jogadaFeita && segundos <= 0) {
                 tempoEsgotado = true;
                     System.out.println("\nSeu tempo está esgotado, por tanto a vez é do próximo jogador." );
             }
