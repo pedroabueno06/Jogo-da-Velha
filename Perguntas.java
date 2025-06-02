@@ -5,7 +5,7 @@ public class Perguntas {
     public static String lerEntrada (Scanner scanner) {
         String entrada = scanner.nextLine();
             if (entrada.equals ("/")) {
-                    System.out.println("Uma pena você não querer jogar nosso jogo.");
+                    System.out.println("Uma pena você não querer jogar nosso jogo, por tanto o jogo está encerrado.");
                         System.exit(0);
             }
             return entrada;
