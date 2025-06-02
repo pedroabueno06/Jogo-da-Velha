@@ -6,14 +6,14 @@ public class BancoPerguntas {
     private ArrayList<Perguntas> perguntasAvancado;
     private Random random;
 
-    public BancoPerguntas() {
-        perguntasIniciante = new ArrayList<>();
-        perguntasIntermediario = new ArrayList<>();
-        perguntasAvancado = new ArrayList<>();
-        random = new Random();
+public BancoPerguntas() {
+    perguntasIniciante = new ArrayList<>();
+    perguntasIntermediario = new ArrayList<>();
+    perguntasAvancado = new ArrayList<>();
+    random = new Random();
         
-        inicializarPerguntas();
-    }
+    inicializarPerguntas();
+}
 
     //Atributo para inicializar as perguntas:
     private void inicializarPerguntas() {
