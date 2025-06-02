@@ -212,11 +212,11 @@ public class Jogo {
                                                             tabuleiroJogoDaVelha.mostrarTabuleiro();
 
                                                     //Mostrar o personagem que cada jogador escolheu:
-                                                    System.out.println("Jogador 1: (" + escolhaJogador1 + ")");
-                                                    System.out.println("Jogador 2: (" + escolhaJogador2 + ")");
+                                                    System.out.println("Jogador 1: (" + escolhaJogador1 + ")"  + ".");
+                                                    System.out.println("Jogador 2: (" + escolhaJogador2 + ")" + ".");
                                                             
                                                     //Mostra quem é o jogador da vez:
-                                                    System.out.println("\nVez do " + getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2));
+                                                    System.out.println("\nVez do " + getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2) + ":");
                                                     System.out.println("Você tem 1 minuto para responder a pergunta e fazer a sua jogada!");
 
                                                     //inicia o crônometro para o jogador responder a pergunta e fazer sua jogada:
