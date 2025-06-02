@@ -39,5 +39,5 @@ public class Perguntas {
     String resposta = scanner.nextLine();
     
     return Integer.parseInt(resposta) == respostaCorreta;
-}
     }
+}
