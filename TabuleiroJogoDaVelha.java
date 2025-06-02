@@ -12,15 +12,18 @@ public class TabuleiroJogoDaVelha {
     public TabuleiroJogoDaVelha (String tipo) {
         this.tipo = tipo;
         switch (tipo) {
-            case "3x3":
+            //Tabuleiro 3x3:
+            case "1":
                 this.tamanho = 3;
                     break;
 
-            case "4x4": 
+            //Tabuleiro 4x4:
+            case "2": 
                 this.tamanho = 4;
                     break;
 
-            case "5x5": 
+            //Tabuleiro 5x5:
+            case "3": 
                 this.tamanho = 5;
                     break;
         }
@@ -43,7 +46,7 @@ public class TabuleiroJogoDaVelha {
             for (int i = 0; i < tamanho; i++) {
                 System.out.println(); // Serve para quebrar a linha
                 for (int j = 0; j < tamanho; j++) {
-                    System.out.print(" " + (matriz[i][j] == ' ' ? '-' : matriz[i][j]) + " "); //Os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
+                    System.out.print(" " + (matriz[i][j] == ' ' ? '-' : matriz[i][j]) + " "); //Os operádores ternários ? e : são substitutos dos operadores concidcionais if/else:
                         if (j < tamanho -1 ) {
                             System.out.print("|"); //Faz com que as colunas possam ser divididas
                         }
@@ -87,7 +90,6 @@ public class TabuleiroJogoDaVelha {
             }
             
         //Sistema verifica colunas do tabuleiro:
-        //Sistema verifica colunas do tabuleiro:
         for (int j = 0; j < tamanho; j++) {
             boolean vitoriaColuna = true;
             for (int i = 0; i < tamanho; i++) {
@@ -102,7 +104,6 @@ public class TabuleiroJogoDaVelha {
         }
         //Sistema verifca a diagonal principal do tabuleiro:
         boolean vitoriaDiagonal1 = true;
-        //Sistema verifca a diagonal principal do tabuleiro:
         for (int i = 0; i < tamanho; i++) {
             if (matriz[i][i] != simbolo) { 
                 vitoriaDiagonal1 = false;
