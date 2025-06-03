@@ -127,17 +127,37 @@ public class Jogo {
 
                 System.out.println("Antes de iniciar o jogo, escolha a dificuldade desejada: (Digite 2 para inciante, 3 para intermediário e 4 para avançado) ");
                     dificuldade = lerEntrada(scanner);
-                if (dificuldade.equals("2")) {
+                
+                    if (dificuldade.equals("2")) {
                     System.out.println("\nDificuldade escolhida: Iniciante.");
                         System.out.println("A seguir você receberá mais instruções.");
 
-                } else if (dificuldade.equals ("3")) {
-                    System.out.println("\nDificuldade escolhida: Intermediária.");
-                        System.out.println("A seguir você receberá mais instruções.");
+                    } else if (dificuldade.equals ("3")) {
+                        System.out.println("\nDificuldade escolhida: Intermediária.");
+                            System.out.println("A seguir você receberá mais instruções.");
 
-                } else if (dificuldade.equals ("4")) {
-                    System.out.println("\nDificuldade escolhida: Avançada.");
-                        System.out.println("A seguir você receberá mais instruções.");
+                    } else if (dificuldade.equals ("4")) {
+                        System.out.println("\nDificuldade escolhida: Avançada.");
+                            System.out.println("A seguir você receberá mais instruções.");
+                    } else {
+                        do { 
+                            System.out.println("\nDificuldade inválida!");
+                            System.out.println("Digite apena 2, 3 ou 4:");
+                            dificuldade = lerEntrada(scanner);
+
+                            if (dificuldade.equals("2")) {
+                        System.out.println("\nDificuldade escolhida: Iniciante.");
+                            System.out.println("A seguir você receberá mais instruções.");
+
+                    } else if (dificuldade.equals ("3")) {
+                        System.out.println("\nDificuldade escolhida: Intermediária.");
+                            System.out.println("A seguir você receberá mais instruções.");
+
+                    } else if (dificuldade.equals ("4")) {
+                        System.out.println("\nDificuldade escolhida: Avançada.");
+                            System.out.println("A seguir você receberá mais instruções.");
+                    }
+                        } while (!dificuldade.equals("2") && !dificuldade.equals("3") && !dificuldade.equals("4"));
                 }
 
                 //Escolha dos personagens que serão atribuídos ao X e O:
@@ -157,10 +177,11 @@ public class Jogo {
                         escolhaJogador2 = "Harvey Deitel (O)";
                             System.out.println("\nJogador 1: Paul Deitel (X)");
                                 System.out.println("Jogador 2: Harvey Deitel (O)");
-                    } else {
-                        escolhaJogador2 = "Paul Deitel (X)";
-                            System.out.println("\nJogador 1: Harvey Deitel (O)");
-                                System.out.println("Jogador 2: Paul Deitel (X) ");
+                        
+                            } else {
+                            escolhaJogador2 = "Paul Deitel (X)";
+                                System.out.println("\nJogador 1: Harvey Deitel (O)");
+                                    System.out.println("Jogador 2: Paul Deitel (X) ");
                     }
 
                     //Escolha do tipo de tabuleiro:
@@ -242,6 +263,7 @@ public class Jogo {
                                                                     continue;
                                                         }
 
+
                                                         System.out.println("\n=== PERGUNTA ===");
                                                             boolean respostaCorreta = perguntasAtual.fazerPergunta(scanner);
 
@@ -286,7 +308,10 @@ public class Jogo {
 
                                                                 }    
 
-                                                            }                                                                
+                                                            } 
+                                                            if (cronometro.isTempoEsgotado()) {
+                                                                System.out.println("Tempo esgotado! Passando para o próximo jogador.");
+                                                            }                                                             
 
                                                             //verifica se o jogo der empate:
                                                             if (tabuleiroJogoDaVelha.verificaEmpate()) {
