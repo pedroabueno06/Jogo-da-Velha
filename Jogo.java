@@ -283,7 +283,7 @@ public class Jogo {
                                                             ultimaJogada[0] = linha; //Armaneza a última jogada feita pelo jogador
                                                                 ultimaJogada[1] = coluna; //armazena a última jogada feita pelo jogador
 
-                                                            //Verifica se venceu o jogo:
+                                                            //Verifica se o jogo teve algum vencedor:
                                                             if (tabuleiroJogoDaVelha.verificarVitoria(jogadorAtual)) {
                                                                 vencedor = getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2);
                                                                     tabuleiroJogoDaVelha.mostrarTabuleiro();
