@@ -2,6 +2,10 @@ public class Cronometro {
     private Thread cronometro;
     private volatile boolean tempoEsgotado; //O volatile é utilizado para indicar que uma variável pode ser modificada por diferentes threads de forma simultânea
     private volatile boolean jogadaFeita;
+    private long tempoInicial;
+    private long tempoLimite;
+    private boolean ativo;
+    private long tempoDecorrido;
 
 public Cronometro() {
     this.tempoEsgotado = false;
@@ -27,6 +31,7 @@ public void iniciar() {
             if (!jogadaFeita && segundos <= 0) {
                 tempoEsgotado = true;
                     System.out.println("\nSeu tempo está esgotado, por tanto a vez é do próximo jogador." );
+                    
             }
     });
 
@@ -43,5 +48,19 @@ public void iniciar() {
 
     public boolean isTempoEsgotado() {
         return tempoEsgotado;
-}
+    }
+
+    public void retornar(long tempo) {
+        tempoInicial = System.currentTimeMillis() - (tempoLimite - tempo);
+    }
+
+    public long pausar() {
+        if (ativo) {
+            tempoDecorrido = System.currentTimeMillis() - tempoInicial;
+            ativo = false;
+            return tempoLimite - tempoDecorrido;
+        }
+        return tempoLimite;
+    }
+
 }
