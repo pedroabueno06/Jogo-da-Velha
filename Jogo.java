@@ -31,6 +31,7 @@ public class Jogo {
             String escolhaJogador1; //Váriável para o jogador 1 escolher seu personagem
             String escolhaJogador2 = ""; //Inicializa a variável com string vazia
             String vencedor; //Variável que verifica qual jogador é o vencedor do jogo
+            String resetarDicas;
             
             System.out.println("===Seja bem vindo ao Deitel VOOX===");
                 System.out.println("Digite 0 se quiser saber as regras, 1 se quiser iniciar o jogo ou / para encerrar.");
@@ -215,7 +216,7 @@ public class Jogo {
                     boolean jogoCompleto = false;
                         while (!jogoCompleto) {
                             TabuleiroJogoDaVelha tabuleiroJogoDaVelha = new TabuleiroJogoDaVelha (acao1);
-                                int moedaJogador1 = 30;
+                                int moedasJogador1 = 30;
                                     int moedasJogador2 = 30;
                                         Random random = new Random();
                                             char jogadorAtual;
@@ -263,9 +264,25 @@ public class Jogo {
                                                                     continue;
                                                         }
 
-
+                                                        boolean podeUsarDicaAtual = !Perguntas.getUsouDicaRodadaAnterior(jogadorAtual);
+ 
                                                         System.out.println("\n=== PERGUNTA ===");
-                                                            boolean respostaCorreta = perguntasAtual.fazerPergunta(scanner);
+                                                            int moedasJogadorAtual = (jogadorAtual == 'X') ? moedasJogador1 : moedasJogador2;
+                                                                boolean respostaCorreta = perguntasAtual.fazerPergunta(scanner, podeUsarDicaAtual, moedasJogadorAtual);
+                                                                
+                                                        if (jogadorAtual == 'X') {
+                                                            moedasJogador1 = moedasJogadorAtual;
+
+                                                        } else {
+                                                            moedasJogador2 = moedasJogadorAtual;
+                                                        }
+
+                                                        if (perguntasAtual.usouDica()) {
+                                                            Perguntas.setUsouDicaRodadaAnterior(jogadorAtual, true);
+
+                                                        } else {
+                                                            Perguntas.setUsouDicaRodadaAnterior(jogadorAtual, false);
+                                                        }
 
                                                         if (respostaCorreta) {
                                                             System.out.println("Sua resposta está correta!");
@@ -319,7 +336,7 @@ public class Jogo {
                                                                     System.out.println("O jogo deu velha! Por isso será reiniciado.");
                                                                 
                                                                     //Após o reinicio do jogo, as moedas dos jogadores são devolvidas se forem utilizadas:
-                                                                    moedaJogador1 = 30;
+                                                                    moedasJogador1 = 30;
                                                                     moedasJogador2 = 30;
                                                                     jogando = false;
                                                             } else {
