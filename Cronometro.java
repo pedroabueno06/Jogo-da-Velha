@@ -31,7 +31,6 @@ public void iniciar() {
             if (!jogadaFeita && segundos <= 0) {
                 tempoEsgotado = true;
                     System.out.println("\nSeu tempo está esgotado, por tanto a vez é do próximo jogador." );
-                    
             }
     });
 
