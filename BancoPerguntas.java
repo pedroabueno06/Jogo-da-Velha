@@ -2,11 +2,12 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 public class BancoPerguntas {
+    
     //Método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
     public static String lerEntrada (Scanner scanner) {
         String entrada = scanner.nextLine();
             if (entrada.equals ("/")) {
-                    System.out.println("Uma pena você não querer jogar nosso jogo, por tanto o jogo está encerrado.");
+                    System.out.println("\nUma pena você não querer jogar o Deitel VOOX, com isso, o jogo está encerrado.");
                         System.exit(0);
             }
             return entrada;
