@@ -320,10 +320,10 @@ public class Jogo {
                                     perguntaAnterior = null;
 
                                 //Lógica se o jogador acertar a pergunta:
-                                System.out.println("Digite a linha do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "): ");
+                                System.out.println("Digite a linha do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "):");
                                     int linha = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
                                                             
-                                System.out.println("Digite a coluna do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "): ");
+                                System.out.println("\nDigite a coluna do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "):");
                                     int coluna = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
                                         cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
 
