@@ -6,7 +6,7 @@ public class Jogo {
     public static String lerEntrada (Scanner scanner) {
         String entrada = scanner.nextLine();
             if (entrada.equals ("/")) {
-                    System.out.println("Uma pena você não querer jogar nosso jogo, por tanto o jogo está encerrado.");
+                    System.out.println("\nUma pena você não querer jogar o Deitel VOOX, com isso, o jogo está encerrado.");
                         System.exit(0);
             }
             return entrada;
@@ -37,7 +37,7 @@ public class Jogo {
             String resetarDicas;
             
             System.out.println("===Seja bem vindo ao Deitel VOOX===");
-                System.out.println("Digite 0 para saber as regras, 1 para iniciar o jogo ou / para encerrar.");
+                System.out.println("\nDigite 0 para saber as regras, 1 para iniciar o jogo ou / para encerrar.");
                     String acao1 = lerEntrada(scanner);
             
             if (acao1.equals ("0")) {
