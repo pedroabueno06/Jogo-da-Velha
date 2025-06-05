@@ -460,15 +460,15 @@ public BancoPerguntas() {
     public Perguntas sortearPerguntas(String dificuldade) {
         ArrayList<Perguntas> listaPerguntas;
             switch(dificuldade) {
-                case "2": 
+                case "1": 
                     listaPerguntas = perguntasIniciante;
                     break;
                 
-                case"3":
+                case"2":
                     listaPerguntas = perguntasIntermediario;
                     break;
                 
-                case "4":
+                case "3":
                     listaPerguntas = perguntasAvancado;
                     break;
                 
