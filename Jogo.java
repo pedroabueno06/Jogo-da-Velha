@@ -1,5 +1,5 @@
-import java.util.Random; //Esta biblioteca faz com que o programa faça um sorteio para ver qual dos jogadores irá fazer a primeira jogada
-import java.util.Scanner; 
+import java.util.Random;
+import java.util.Scanner; //Esta biblioteca faz com que o programa faça um sorteio para ver qual dos jogadores irá fazer a primeira jogada
 public class Jogo {    
     
     //Método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
@@ -37,42 +37,46 @@ public class Jogo {
             String resetarDicas;
             
             System.out.println("===Seja bem vindo ao Deitel VOOX===");
-                System.out.println("Digite 0 se quiser saber as regras, 1 se quiser iniciar o jogo ou / para encerrar.");
+                System.out.println("Digite 0 para saber as regras, 1 para iniciar o jogo ou / para encerrar.");
                     String acao1 = lerEntrada(scanner);
             
             if (acao1.equals ("0")) {
-                System.out.println("\nRegras do jogo Deitel VOOX: \n");
-                System.out.println("1- Este é um jogo da velha que tem como conteúdo, a linguagem de programação 'Java', baseado nos capítulos 8,9 e 10 do livro Java: Como Programar; \n");
-                System.out.println("2- Necessita de 2 jogadores para ser jogado \n");
-                System.out.println("3- Os jogadores devem escolher entre as seguintes dificuldades de perguntas: \n");
+                System.out.println("\n===Regras do jogo Deitel VOOX===\n");
+                System.out.println("1- Este é um jogo da velha que tem como conteúdo, a linguagem de programação 'Java', baseado nos capítulos 8,9 e 10 do livro Java: Como Programar.\n");
+                System.out.println("2- Necessita de 2 jogadores para ser jogado.\n");
+                System.out.println("3- Os jogadores devem escolher entre as seguintes dificuldades de perguntas:\n");
                 System.out.println("- Iniciante; \n");
                 System.out.println("- Intermediário; \n");
                 System.out.println("- Avançado. \n");
-                System.out.println("4- Cada jogador deve escolher entre os seguintes personagens: (Para escolher os personagens, basta digitar X ou O) \n");
+                System.out.println("4- Cada jogador deve escolher entre os seguintes personagens: (Para escolher os personagens, basta digitar X ou O):\n");
                 System.out.println("- Paul Deitel(X); \n");
                 System.out.println("- Harvey Deitel(O). \n");
                 System.out.println("5- Após a escolha dos personagens, os jogadores deverão escolher o tipo de tabuleiro que desejam jogar: \n");
-                System.out.println("- Digite 3x3 para escolher o tabuleiro 3x3. \n");
-                System.out.println("- Digite 4x4 para escolher o tabuleiro 4x4.");
-                System.out.println("Digite 5x5 para escolher o tabuleiro 5x5.");
-                System.out.println("6- Cada jogador inicia o jogo com 30 moedas para serem utilizadas no sistema de dicas; \n");
-                System.out.println("7- O sistema do jogo escolhe aleatoriamente que deve iniciar o jogo; \n");
-                System.out.println("8- O sistema do jogo escolhe aleatóriamente a pergunta que será feita ao jogador; \n");
-                System.out.println("9- Para realizar a marcação no tabuleiro, é necessário responder uma pergunta que envolve 4 alternativas selecionada aleatoriamente pelo sistema sobre os conteúdos que estão em um dos três capítulos já pré-definidios do livro Java: Como Programar; \n");
-                System.out.println("10- Cada jogador terá até um minuto para responder cada pergunta e mais cinco minutos caso deseje ler as breves explicações que estarão nas caixas de texto, mas ao acionar a caixa de texto, o seu tempo para responder a pergunta será paralisado e iniciado do ponto em que parou após a leitura; \n");
-                System.out.println("11- Em caso do jogador ter acertado uma das perguntas e errar as próximas duas perguntas de forma consecutiva, o sistema irá retirar a ultima marcação que o jogador realizou no tauleiro; \n");
-                System.out.println("12- Em caso de um dos jogadores não souber tiver conhecimento sobre o assunto de uma das perguntas, ele pode ou reccorrer ao sistema de dicas ou as caixas de texto que nelas haverão breves explicações sobre o conteúdo das perguntas; \n");
-                System.out.println("13- O sistema de dicas funciona da seguinte maneira: \n");
-                System.out.println("- Cada jogador inicia o jogo com 30 moedas; \n");
-                System.out.println("- A dica 1 custa 5 moedas e irá retirar uma das alternativas da pergunta em questão; \n");
-                System.out.println("- A dica 2 custa 10 moedas e irá retirar duas alternativas da pergunta em questão; \n");
-                System.out.println("- A dica 3 custa 15 moedas e irá retirar três alternativas da pergunta em questão; \n");
-                System.out.println("- Cada dica só poderá ser utilizada em uma rodada e na próxima não poderá ser utilizada. \n");
-                System.out.println("- As dicas devem ser utilizadas em sua ordem, ou seja, primeiro você deve utilizar a dica 1, depois a dica 2 e por último a dica 3; \n");
-                System.out.println("14- Um jogador só poderá ganhar se completar uma linha, coluna ou quina com seu símbolo escolhido; \n");
-                System.out.println("15- Em caso de vir a ocorrer velha, ou seja, nenhum dos jogadores conseguiu realizar uma das combinações necessárias para ganhar, o jogo será reiniciado automaticamente e as moedas dos jogadores devolvidas se utilizadas. \n");
+                System.out.println("- Digite 1 para escolher o tabuleiro 3x3;\n");
+                System.out.println("- Digite 2 para escolher o tabuleiro 4x4;\n");
+                System.out.println("- Digite  para escolher o tabuleiro 5x5.\n");
+                System.out.println("6- Cada jogador inicia o jogo com 30 moedas para serem utilizadas no sistema de dicas.\n");
+                System.out.println("7- O sistema do jogo escolhe aleatoriamente que deve iniciar o jogo.\n");
+                System.out.println("8- O sistema do jogo escolhe aleatóriamente a pergunta que será feita ao jogador.\n");
+                System.out.println("9- Para realizar a marcação no tabuleiro, é necessário responder uma pergunta que envolve 4 alternativas selecionada aleatoriamente pelo sistema sobre");
+                System.out.println("   os conteúdos que estão em um dos três capítulos já pré-definidios do livro Java: Como Programar.\n");               
+                System.out.println("10- Cada jogador terá até um minuto para responder cada pergunta e mais cinco minutos caso deseje ler as breves explicações que estarão nas caixas de texto,");
+                System.out.println("    mas ao acionar a caixa de texto, o seu tempo para responder a pergunta será paralisado e iniciado do ponto em que parou após a leitura.\n");
+                System.out.println("11- Em caso do jogador ter acertado uma das perguntas e errar as próximas duas perguntas de forma consecutiva, o sistema irá retirar a ultima marcação que o jogador realizou no tauleiro.\n");
+                System.out.println("12- Em caso de um dos jogadores não souber tiver conhecimento sobre o assunto de uma das perguntas, ele pode ou reccorrer ao sistema de dicas ou as explicações");
+                System.out.println("    que nelas haverão breves esclarecimentos sobre o conteúdo das perguntas.\n");
+                System.out.println("13- O sistema de dicas funciona da seguinte maneira:\n");
+                System.out.println("- Cada jogador inicia o jogo com 30 moedas;\n");
+                System.out.println("- A dica 1 custa 5 moedas e irá retirar uma das alternativas da pergunta em questão;\n");
+                System.out.println("- A dica 2 custa 10 moedas e irá retirar duas alternativas da pergunta em questão;\n");
+                System.out.println("- A dica 3 custa 15 moedas e irá retirar três alternativas da pergunta em questão;\n");
+                System.out.println("- Cada dica só poderá ser utilizada em uma rodada e na próxima não poderá ser utilizada.\n");
+                System.out.println("- As dicas devem ser utilizadas em sua ordem, ou seja, primeiro você deve utilizar a dica 1, depois a dica 2 e por último a dica 3.\n");
+                System.out.println("14- Um jogador só poderá ganhar se completar uma linha, coluna ou quina com seu símbolo escolhido.\n");
+                System.out.println("15- Em caso de vir a ocorrer velha, ou seja, nenhum dos jogadores conseguiu realizar uma das combinações necessárias para ganhar, o jogo será reiniciado automaticamente");
+                System.out.println("    e as moedas dos jogadores devolvidas se utilizadas.\n");
                 
-                System.out.println("Digite 1 para iniciar o jogo.");
+                System.out.println("Digite 1 para iniciar o jogo:");
                 acao1 = lerEntrada(scanner);
                     System.out.println("\nÓtimo, a seguir você receberá mais instruções.");
             
@@ -81,7 +85,7 @@ public class Jogo {
 
                 } else {
                     do {
-                        System.out.println("Opção inválida!");
+                        System.out.println("\nOpção inválida!");
                             System.out.println("Digite apenas 0, 1 ou /: ");
                                 acao1 = lerEntrada(scanner);
 
@@ -129,39 +133,39 @@ public class Jogo {
                 }
             }
 
-                System.out.println("Antes de iniciar o jogo, escolha a dificuldade desejada: (Digite 2 para inciante, 3 para intermediário e 4 para avançado) ");
+                System.out.println("Antes de iniciar o jogo, escolha a dificuldade desejada: (Digite 1 para inciante, 2 para intermediário e 3 para avançado) ");
                     dificuldade = lerEntrada(scanner);
                 
-                    if (dificuldade.equals("2")) {
+                    if (dificuldade.equals("1")) {
                     System.out.println("\nDificuldade escolhida: Iniciante.");
                         System.out.println("A seguir você receberá mais instruções.");
 
-                    } else if (dificuldade.equals ("3")) {
+                    } else if (dificuldade.equals ("2")) {
                         System.out.println("\nDificuldade escolhida: Intermediária.");
                             System.out.println("A seguir você receberá mais instruções.");
 
-                    } else if (dificuldade.equals ("4")) {
+                    } else if (dificuldade.equals ("3")) {
                         System.out.println("\nDificuldade escolhida: Avançada.");
                             System.out.println("A seguir você receberá mais instruções.");
                     } else {
                         do { 
                             System.out.println("\nDificuldade inválida!");
-                            System.out.println("Digite apena 2, 3 ou 4:");
+                            System.out.println("Digite apena 1, 2 ou 3:");
                             dificuldade = lerEntrada(scanner);
 
-                            if (dificuldade.equals("2")) {
+                            if (dificuldade.equals("1")) {
                         System.out.println("\nDificuldade escolhida: Iniciante.");
                             System.out.println("A seguir você receberá mais instruções.");
 
-                    } else if (dificuldade.equals ("3")) {
+                    } else if (dificuldade.equals ("2")) {
                         System.out.println("\nDificuldade escolhida: Intermediária.");
                             System.out.println("A seguir você receberá mais instruções.");
 
-                    } else if (dificuldade.equals ("4")) {
+                    } else if (dificuldade.equals ("3")) {
                         System.out.println("\nDificuldade escolhida: Avançada.");
                             System.out.println("A seguir você receberá mais instruções.");
                     }
-                        } while (!dificuldade.equals("2") && !dificuldade.equals("3") && !dificuldade.equals("4"));
+                        } while (!dificuldade.equals("1") && !dificuldade.equals("2") && !dificuldade.equals("3"));
                 }
 
                 //Escolha dos personagens que serão atribuídos ao X e O:
