@@ -1,6 +1,7 @@
 import java.util.Random; //Esta biblioteca faz com que o programa faça um sorteio para ver qual dos jogadores irá fazer a primeira jogada
 import java.util.Scanner; 
 public class Jogo {    
+    
     //Método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
     public static String lerEntrada (Scanner scanner) {
         String entrada = scanner.nextLine();
@@ -246,6 +247,14 @@ public class Jogo {
                                                     System.out.println("Você tem 1 minuto para responder a pergunta e fazer a sua jogada!");
                                                         cronometro.iniciar();
 
+                                                    //Verificação de tempo antes de processar a resposta:
+                                                    if (cronometro.tempoEsgotado()) {
+                                                        cronometro.Enter();
+                                                            cronometro.pararCronometro();
+                                                                jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X'; //Os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
+                                                                    continue;
+                                                    }
+
                                                         //Faz o sorteio da pergunta e a aplica:
                                                         Perguntas perguntasAtual;
                                                         if (perguntaAnterior != null) {
@@ -269,6 +278,15 @@ public class Jogo {
                                                         System.out.println("\n=== PERGUNTA ===");
                                                             int moedasJogadorAtual = (jogadorAtual == 'X') ? moedasJogador1 : moedasJogador2;
                                                                 boolean respostaCorreta = perguntasAtual.fazerPergunta(scanner, podeUsarDicaAtual, moedasJogadorAtual);
+                                                        
+                                                        //Verificação de tempo antes de processar a resposta:
+                                                        if (cronometro.tempoEsgotado()) {
+                                                            cronometro.Enter();
+                                                                cronometro.pararCronometro();
+                                                                    jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X'; //Os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
+                                                                        continue;
+                                                        }
+
                                                                 
                                                         if (jogadorAtual == 'X') {
                                                             moedasJogador1 = moedasJogadorAtual;
@@ -298,7 +316,7 @@ public class Jogo {
 
                                                         if (tabuleiroJogoDaVelha.realizarJogada(linha, coluna, jogadorAtual)) {
                                                             ultimaJogada[0] = linha; //Armaneza a última jogada feita pelo jogador
-                                                                ultimaJogada[1] = coluna; //armazena a última jogada feita pelo jogador
+                                                                ultimaJogada[1] = coluna; //Armazena a última jogada feita pelo jogador
 
                                                             //Verifica se o jogo teve algum vencedor:
                                                             if (tabuleiroJogoDaVelha.verificarVitoria(jogadorAtual)) {
@@ -317,7 +335,7 @@ public class Jogo {
                                                                     errosConsecutivos++;
                                                                 cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
 
-                                                                if (errosConsecutivos >= 2) {
+                                                                if (errosConsecutivos == 2) {
                                                                     System.out.println("Você errou duas perguntas consecutivas, portanto sua última jogada será desfeita.");
                                                                         tabuleiroJogoDaVelha.removerJogada(ultimaJogada[0], ultimaJogada[1]);
                                                                             errosConsecutivos = 0; //Reinicia os erros consecutivos
@@ -325,11 +343,8 @@ public class Jogo {
 
                                                                 }    
 
-                                                            } 
-                                                            if (cronometro.isTempoEsgotado()) {
-                                                                System.out.println("Tempo esgotado! Passando para o próximo jogador.");
-                                                            }                                                             
-
+                                                            }
+                                                                                                                       
                                                             //verifica se o jogo der empate:
                                                             if (tabuleiroJogoDaVelha.verificaEmpate()) {
                                                                 tabuleiroJogoDaVelha.mostrarTabuleiro();
