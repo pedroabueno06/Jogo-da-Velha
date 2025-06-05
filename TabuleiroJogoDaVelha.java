@@ -8,7 +8,6 @@ public class TabuleiroJogoDaVelha {
     private int tamanho;
     private String tipo;
 
-
     public TabuleiroJogoDaVelha (String tipo) {
         this.tipo = tipo;
         switch (tipo) {
@@ -113,7 +112,7 @@ public class TabuleiroJogoDaVelha {
         if (vitoriaDiagonal1) {
             return true;
         }
-
+            
             //Sistema verifica a diagonal secundária:
             boolean vitoriaDiagonal2 = true;
             for (int i = 0; i < tamanho; i++) {
@@ -137,7 +136,6 @@ public class TabuleiroJogoDaVelha {
             return true;
         }
             
-
     public String getTipo() {
         return tipo;
     }
