@@ -165,7 +165,7 @@ public BancoPerguntas() {
                                             " Usada após a cláusula extends (se houver).\n");
                                             perguntasIniciante.add(pergunta14);
 
-            Perguntas pergunta15 = new Perguntas("15- Qual conceito de POO (Programação Orientada a Objeto permite que objetos de diferentes classes relacionadas (que compartilham uma superclasse ou implementam uma interface) sejam tratados de forma genérica através de uma\n" + 
+            Perguntas pergunta15 = new Perguntas("15- Qual conceito de POO (Programação Orientada a Objetos) permite que objetos de diferentes classes relacionadas (que compartilham uma superclasse ou implementam uma interface) sejam tratados de forma genérica através de uma\n" + 
                                                 " através de uma referência de supertipo, e que uma chamada de método para essa referência execute o comportamento apropriado para o tipo real do objeto em tempo de execução? Páginas do Livro: 312 a 314.\n",
                                         new String[] {"a) Herança.\r\n", "b) Encapsulamento.\r\n", "c) Polimorfismo.\r\n", "d) Abstração.\r\n"},
                                             3, "Iniciante", "", "", null, false);
