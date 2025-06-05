@@ -1,65 +1,83 @@
+import java.util.Scanner;
 public class Cronometro {
     private Thread cronometro;
     private volatile boolean tempoEsgotado; //O volatile é utilizado para indicar que uma variável pode ser modificada por diferentes threads de forma simultânea
-    private volatile boolean jogadaFeita;
     private long tempoInicial;
     private long tempoLimite;
-    private boolean ativo;
     private long tempoDecorrido;
-
+    private long tempoRestante;
+    private boolean Enter;
+    private Scanner scanner;
+    
 public Cronometro() {
+    this.scanner = new Scanner(System.in);
     this.tempoEsgotado = false;
-    this.jogadaFeita = false;
+    this.Enter = false;
 }
 
-public void iniciar() {
-    tempoEsgotado = false;
-    jogadaFeita = false;
-
-    cronometro = new Thread (() -> {
-        int segundos = 60; //Crônometro inicia com 60 segundos
-            while (segundos > 0 && !jogadaFeita) {
-                try { //Pode lançar uma execeção
-                    Thread.sleep (1000);
-                        segundos--;
-                        System.out.print("\r [Tempo restante: " + segundos + " s] "); //\r faz com que o cursor retorne ao inicio da linha
-                        Thread.sleep (1000);
-                } catch (InterruptedException e) {
-                    return;
-                }
-            }
-            if (!jogadaFeita && segundos <= 0) {
-                tempoEsgotado = true;
-                    System.out.println("\nSeu tempo está esgotado, por tanto a vez é do próximo jogador." );
-            }
-    });
-
-    cronometro.start();
-
-}
-
-    public void pararCronometro() {
-        jogadaFeita = false;
-            if (cronometro != null) {
-                cronometro.interrupt();
-            }
+    public void iniciar() {
+        this.tempoInicial = System.currentTimeMillis();
+        this.tempoLimite = 60;
+        this.tempoEsgotado = false;
+        mostrarTempo();
     }
 
-    public boolean isTempoEsgotado() {
+    public void iniciar(int segundos) {
+        this.tempoInicial = System.currentTimeMillis();
+        this.tempoLimite = segundos;
+        this.tempoEsgotado = false;
+        this.Enter = false;
+        mostrarTempo();
+    }
+
+    public boolean tempoEsgotado() {
         return tempoEsgotado;
     }
+    
+    private void mostrarTempo() {
+        cronometro = new Thread (() -> {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                return;
+            }
 
-    public void retornar(long tempo) {
-        tempoInicial = System.currentTimeMillis() - (tempoLimite - tempo);
+            while (!tempoEsgotado()) {
+                long agora = System.currentTimeMillis();
+                    tempoDecorrido = (agora - tempoInicial) /1000;
+                        tempoRestante = tempoLimite - (int) tempoDecorrido;
+
+                if (tempoRestante <= 0) {
+                        tempoEsgotado = true;
+                        System.out.print("\r    ");
+                            System.out.println("\nSeu tempo está esgotado, por tanto a vez é do próximo jogador.");
+                                System.out.println("Pressione ENTER para continuar o jogo:");
+                                    break;
+                }
+
+                            System.out.print("\r[Tempo restante: " + tempoRestante + " s] ");
+                                try {
+                                    Thread.sleep(1000);
+                                } catch (InterruptedException e) {
+                                    break;
+                                }
+            }
+        });
+        cronometro.start();
     }
 
-    public long pausar() {
-        if (ativo) {
-            tempoDecorrido = System.currentTimeMillis() - tempoInicial;
-            ativo = false;
-            return tempoLimite - tempoDecorrido;
+    public void Enter() {
+        if (tempoEsgotado) {
+            Enter = false;
+                pararCronometro();
         }
-        return tempoLimite;
     }
 
+    public void pararCronometro() {
+        if (cronometro != null) {
+            cronometro.interrupt();
+        }
+        tempoLimite = 0;
+        tempoEsgotado = true;
+    }
 }
