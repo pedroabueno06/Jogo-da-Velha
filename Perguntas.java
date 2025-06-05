@@ -249,7 +249,6 @@ public class Perguntas {
                     try {
                         return Integer.parseInt(resposta) == respostaCorreta;
                     } catch (NumberFormatException e) {
-                        System.out.println("Resposta inválida!");
                         return false;
                     }
             }
