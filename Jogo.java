@@ -172,191 +172,191 @@ public class Jogo {
                          System.out.println("\nOpção inválida!");
                                 System.out.println("Digite apenas Paul Deitel (X) para escolher o X e Harvey Deitel (O) para ser O. ");
                                     escolhaJogador1 = lerEntrada(scanner);
-                    }
+                        }
 
-                    //O personagem que não for escolhido pelo jogador 1, será atruído automaticamnte ao jogador 2:
-                    if (escolhaJogador1.equals("Paul Deitel (X)")) {
-                        escolhaJogador2 = "Harvey Deitel (O)";
-                            System.out.println("\nJogador 1: Paul Deitel (X)");
-                                System.out.println("Jogador 2: Harvey Deitel (O)");
-                        
+                        //O personagem que não for escolhido pelo jogador 1, será atruído automaticamnte ao jogador 2:
+                        if (escolhaJogador1.equals("Paul Deitel (X)")) {
+                            escolhaJogador2 = "Harvey Deitel (O)";
+                                System.out.println("\nJogador 1: Paul Deitel (X)");
+                                    System.out.println("Jogador 2: Harvey Deitel (O)");
+                            
+                                } else {
+                                escolhaJogador2 = "Paul Deitel (X)";
+                                    System.out.println("\nJogador 1: Harvey Deitel (O)");
+                                        System.out.println("Jogador 2: Paul Deitel (X) ");
+                        }
+
+                        //Escolha do tipo de tabuleiro:
+                        System.out.println("\nEscolha do tipo de tabuleiro:");
+                        System.out.println("Digite 1 para escolher o tabuleiro 3x3.");
+                        System.out.println("\nDigite 2 para escolher o tabuleiro 4x4.");
+                        System.out.println("\nDigite 3 para escolher o tabuleiro 5x5.");
+                        System.out.println("\nDigite sua escolha de tabuleiro: ");
+                            acao1 = lerEntrada (scanner);
+
+                        if (acao1.equals ("1")) {
+                            System.out.println("\nTabuleiro escolhido: 3x3.");
+
+                        } else if (acao1.equals ("2")) {
+                            System.out.println("\nTabuleiro escolhido: 4x4.");
+
+                        } else if (acao1.equals ("3")) {
+                            System.out.println("\nTabuleiro escolhido: 5x5.");
+
+                        } else {
+                            do { 
+                                System.out.println("\nOpção inválida!");
+                                    System.out.println("Digite apenas 1, 2 ou 3:");
+                                        acao1 = lerEntrada (scanner);
+
+                        } while (!acao1.equals ("1") && !acao1.equals ("2") && !acao1.equals ("3"));
+                        }
+                            
+                        BancoPerguntas bancoPerguntas = new BancoPerguntas();
+                        //Faz o sorteio sobre qual jogador vai começar o jogo:
+                        boolean jogoCompleto = false;
+                            while (!jogoCompleto) {
+                                TabuleiroJogoDaVelha tabuleiroJogoDaVelha = new TabuleiroJogoDaVelha (acao1);
+                                    int moedasJogador1 = 30;
+                                        int moedasJogador2 = 30;
+                                            Random random = new Random();
+                                                char jogadorAtual;
+
+                            if (random.nextBoolean()) {
+                                jogadorAtual = 'X';
                             } else {
-                            escolhaJogador2 = "Paul Deitel (X)";
-                                System.out.println("\nJogador 1: Harvey Deitel (O)");
-                                    System.out.println("Jogador 2: Paul Deitel (X) ");
-                    }
+                                jogadorAtual = 'O';
+                            }
 
-                    //Escolha do tipo de tabuleiro:
-                    System.out.println("\nEscolha do tipo de tabuleiro:");
-                    System.out.println("Digite 1 para escolher o tabuleiro 3x3.");
-                    System.out.println("\nDigite 2 para escolher o tabuleiro 4x4.");
-                    System.out.println("\nDigite 3 para escolher o tabuleiro 5x5.");
-                    System.out.println("\nDigite sua escolha de tabuleiro: ");
-                        acao1 = lerEntrada (scanner);
+                            boolean jogando = true;
 
-                    if (acao1.equals ("1")) {
-                        System.out.println("\nTabuleiro escolhido: 3x3.");
+                            Cronometro cronometro = new Cronometro();
 
-                    } else if (acao1.equals ("2")) {
-                        System.out.println("\nTabuleiro escolhido: 4x4.");
+                            while (jogando) {
+                            System.out.println("\nEstado atual do tabuleiro:");
+                                tabuleiroJogoDaVelha.mostrarTabuleiro();
 
-                    } else if (acao1.equals ("3")) {
-                        System.out.println("\nTabuleiro escolhido: 5x5.");
+                            //Mostrar o personagem que cada jogador escolheu:
+                            System.out.println("Jogador 1: (" + escolhaJogador1 + ")"  + ".");
+                            System.out.println("Jogador 2: (" + escolhaJogador2 + ")" + ".");
+                                                                
+                            //Mostra quem é o jogador da vez:
+                            System.out.println("\nVez do " + getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2) + ":");
 
-                    } else {
-                        do { 
-                            System.out.println("\nOpção inválida!");
-                                System.out.println("Digite apenas 1, 2 ou 3:");
-                                    acao1 = lerEntrada (scanner);
+                            //inicia o crônometro para o jogador responder a pergunta e fazer sua jogada:
+                            System.out.println("Você tem 1 minuto para responder a pergunta e fazer a sua jogada!");
+                                cronometro.iniciar();
 
-                    } while (!acao1.equals ("1") && !acao1.equals ("2") && !acao1.equals ("3"));
-                    }
-                        
-                    BancoPerguntas bancoPerguntas = new BancoPerguntas();
-                    //Faz o sorteio sobre qual jogador vai começar o jogo:
-                    boolean jogoCompleto = false;
-                        while (!jogoCompleto) {
-                            TabuleiroJogoDaVelha tabuleiroJogoDaVelha = new TabuleiroJogoDaVelha (acao1);
-                                int moedasJogador1 = 30;
-                                    int moedasJogador2 = 30;
-                                        Random random = new Random();
-                                            char jogadorAtual;
+                            //Verificação de tempo antes de processar a resposta:
+                            if (cronometro.tempoEsgotado()) {
+                                cronometro.Enter();
+                                    cronometro.pararCronometro();
+                                        jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X'; //Os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
+                                            continue;
+                            }
 
-                                                if (random.nextBoolean()) {
-                                                        jogadorAtual = 'X';
-                                                    } else {
-                                                        jogadorAtual = 'O';
-                                                    }
+                            //Faz o sorteio da pergunta e a aplica:
+                            Perguntas perguntasAtual;
+                            if (perguntaAnterior != null) {
+                                perguntasAtual = perguntaAnterior;
+                                    perguntaAnterior = null;
+                            } else if (ultimaPerguntaCorreta != null) {
+                                perguntasAtual = ultimaPerguntaCorreta;
+                                    ultimaPerguntaCorreta = null; //Faz com que a última pergunta acertada não seja repetida
+                            
+                            } else {
+                                perguntasAtual = bancoPerguntas.sortearPerguntas(dificuldade);
+                            } 
 
-                                                    boolean jogando = true;
+                            if (perguntasAtual == null) {
+                                System.out.println("Erro ao carregar pergunta. Tente novamente");
+                                    cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
+                                        continue;
+                            }
 
-                                                    Cronometro cronometro = new Cronometro();
-
-                                                    while (jogando) {
-                                                        System.out.println("\nEstado atual do tabuleiro:");
-                                                            tabuleiroJogoDaVelha.mostrarTabuleiro();
-
-                                                    //Mostrar o personagem que cada jogador escolheu:
-                                                    System.out.println("Jogador 1: (" + escolhaJogador1 + ")"  + ".");
-                                                    System.out.println("Jogador 2: (" + escolhaJogador2 + ")" + ".");
-                                                            
-                                                    //Mostra quem é o jogador da vez:
-                                                    System.out.println("\nVez do " + getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2) + ":");
-
-                                                    //inicia o crônometro para o jogador responder a pergunta e fazer sua jogada:
-                                                    System.out.println("Você tem 1 minuto para responder a pergunta e fazer a sua jogada!");
-                                                        cronometro.iniciar();
-
-                                                    //Verificação de tempo antes de processar a resposta:
-                                                    if (cronometro.tempoEsgotado()) {
-                                                        cronometro.Enter();
-                                                            cronometro.pararCronometro();
-                                                                jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X'; //Os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
-                                                                    continue;
-                                                    }
-
-                                                        //Faz o sorteio da pergunta e a aplica:
-                                                        Perguntas perguntasAtual;
-                                                        if (perguntaAnterior != null) {
-                                                            perguntasAtual = perguntaAnterior;
-                                                                perguntaAnterior = null;
-                                                        } else if (ultimaPerguntaCorreta != null) {
-                                                            perguntasAtual = ultimaPerguntaCorreta;
-                                                                ultimaPerguntaCorreta = null; //Faz com que a última pergunta acertada não seja repetida
-                                                        } else {
-                                                            perguntasAtual = bancoPerguntas.sortearPerguntas(dificuldade);
-                                                        } 
-
-                                                        if (perguntasAtual == null) {
-                                                            System.out.println("Erro ao carregar pergunta. Tente novamente");
-                                                                cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
-                                                                    continue;
-                                                        }
-
-                                                        boolean podeUsarDicaAtual = !Perguntas.getUsouDicaRodadaAnterior(jogadorAtual);
+                            boolean podeUsarDicaAtual = !Perguntas.getUsouDicaRodadaAnterior(jogadorAtual);
  
-                                                        System.out.println("\n=== PERGUNTA ===");
-                                                            int moedasJogadorAtual = (jogadorAtual == 'X') ? moedasJogador1 : moedasJogador2;
-                                                                boolean respostaCorreta = perguntasAtual.fazerPergunta(scanner, podeUsarDicaAtual, moedasJogadorAtual);
+                            System.out.println("\n=== PERGUNTA ===");
+                                int moedasJogadorAtual = (jogadorAtual == 'X') ? moedasJogador1 : moedasJogador2;
+                                    boolean respostaCorreta = perguntasAtual.fazerPergunta(scanner, podeUsarDicaAtual, moedasJogadorAtual);
                                                         
-                                                        //Verificação de tempo antes de processar a resposta:
-                                                        if (cronometro.tempoEsgotado()) {
-                                                            cronometro.Enter();
-                                                                cronometro.pararCronometro();
-                                                                    jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X'; //Os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
-                                                                        continue;
-                                                        }
+                            //Verificação de tempo antes de processar a resposta:
+                            if (cronometro.tempoEsgotado()) {
+                                cronometro.Enter();
+                                    cronometro.pararCronometro();
+                                        jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X'; //Os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
+                                            continue;
+                            }
+          
+                            if (jogadorAtual == 'X') {
+                                moedasJogador1 = moedasJogadorAtual;
 
-                                                                
-                                                        if (jogadorAtual == 'X') {
-                                                            moedasJogador1 = moedasJogadorAtual;
+                            } else {
+                                moedasJogador2 = moedasJogadorAtual;
+                            }
 
-                                                        } else {
-                                                            moedasJogador2 = moedasJogadorAtual;
-                                                        }
+                            if (perguntasAtual.usouDica()) {
+                                Perguntas.setUsouDicaRodadaAnterior(jogadorAtual, true);
 
-                                                        if (perguntasAtual.usouDica()) {
-                                                            Perguntas.setUsouDicaRodadaAnterior(jogadorAtual, true);
+                            } else {
+                                Perguntas.setUsouDicaRodadaAnterior(jogadorAtual, false);
+                            }
 
-                                                        } else {
-                                                            Perguntas.setUsouDicaRodadaAnterior(jogadorAtual, false);
-                                                        }
+                            if (respostaCorreta) {
+                                System.out.println("Sua resposta está correta!");
+                                    errosConsecutivos = 0; //Reinicia os erros consecutivos
+                                        perguntaAnterior = null;                                                                                      
 
-                                                        if (respostaCorreta) {
-                                                            System.out.println("Sua resposta está correta!");
-                                                                errosConsecutivos = 0; //Reinicia os erros consecutivos
-                                                                    perguntaAnterior = null;                                                                                      
+                            //Lógica se o jogador acertar a pergunta:
+                            System.out.println("Digite a linha do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "): ");
+                                int linha = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
+                                                        
+                            System.out.println("Digite a coluna do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "): ");
+                                int coluna = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
+                                    cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
 
-                                                        //Lógica se o jogador acertar a pergunta:
-                                                        System.out.println("Digite a linha do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "): ");
-                                                            int linha = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
-                                                        System.out.println("Digite a coluna do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "): ");
-                                                            int coluna = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
-                                                        cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
+                            if (tabuleiroJogoDaVelha.realizarJogada(linha, coluna, jogadorAtual)) {
+                                ultimaJogada[0] = linha; //Armaneza a última jogada feita pelo jogador
+                                    ultimaJogada[1] = coluna; //Armazena a última jogada feita pelo jogador
 
-                                                        if (tabuleiroJogoDaVelha.realizarJogada(linha, coluna, jogadorAtual)) {
-                                                            ultimaJogada[0] = linha; //Armaneza a última jogada feita pelo jogador
-                                                                ultimaJogada[1] = coluna; //Armazena a última jogada feita pelo jogador
-
-                                                            //Verifica se o jogo teve algum vencedor:
-                                                            if (tabuleiroJogoDaVelha.verificarVitoria(jogadorAtual)) {
-                                                                vencedor = getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2);
-                                                                    tabuleiroJogoDaVelha.mostrarTabuleiro();
-                                                                        System.out.println("Parabéns " + vencedor + ", você venceu o jogo!");
-                                                                            jogoCompleto = true;
-                                                                                jogando = false;
-                                                                                    continue;
-                                                            }
-                                                        }
-                                                            
-                                                            } else {
-                                                                //Verifica se o jogador errou a pergunta:
-                                                                System.out.println("Sua resposta está incorreta!");
-                                                                    errosConsecutivos++;
-                                                                cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
-
-                                                                if (errosConsecutivos == 2) {
-                                                                    System.out.println("Você errou duas perguntas consecutivas, portanto sua última jogada será desfeita.");
-                                                                        tabuleiroJogoDaVelha.removerJogada(ultimaJogada[0], ultimaJogada[1]);
-                                                                            errosConsecutivos = 0; //Reinicia os erros consecutivos
-                                                                    cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
-
-                                                                }    
-
-                                                            }
-                                                                                                                       
-                                                            //verifica se o jogo der empate:
-                                                            if (tabuleiroJogoDaVelha.verificaEmpate()) {
-                                                                tabuleiroJogoDaVelha.mostrarTabuleiro();
-                                                                    System.out.println("O jogo deu velha! Por isso será reiniciado.");
-                                                                
-                                                                    //Após o reinicio do jogo, as moedas dos jogadores são devolvidas se forem utilizadas:
-                                                                    moedasJogador1 = 30;
-                                                                    moedasJogador2 = 30;
-                                                                    jogando = false;
-                                                            } else {
-                                                                jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X'; //Os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
+                                //Verifica se o jogo teve algum vencedor:
+                                if (tabuleiroJogoDaVelha.verificarVitoria(jogadorAtual)) {
+                                    vencedor = getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2);
+                                        tabuleiroJogoDaVelha.mostrarTabuleiro();
+                                            System.out.println("Parabéns " + vencedor + ", você venceu o jogo!");
+                                                jogoCompleto = true;
+                                                    jogando = false;
+                                                        continue;
+                            }
                                 }
+                                                            
+                            } else {
+                            //Verifica se o jogador errou a pergunta:
+                            System.out.println("Sua resposta está incorreta!");
+                                errosConsecutivos++;
+                                    cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
+
+                            if (errosConsecutivos == 2) {
+                                System.out.println("Você errou duas perguntas consecutivas, portanto sua última jogada será desfeita.");
+                                    tabuleiroJogoDaVelha.removerJogada(ultimaJogada[0], ultimaJogada[1]);
+                                        errosConsecutivos = 0; //Reinicia os erros consecutivos
+                                            cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
+
+                            }    
+                                }
+                                                                                                                       
+                            //verifica se o jogo der empate:
+                            if (tabuleiroJogoDaVelha.verificaEmpate()) {
+                            tabuleiroJogoDaVelha.mostrarTabuleiro();
+                                System.out.println("O jogo deu velha! Por isso será reiniciado.");
+                                                                
+                            //Após o reinicio do jogo, as moedas dos jogadores são devolvidas se forem utilizadas:
+                            moedasJogador1 = 30;
+                                moedasJogador2 = 30;
+                                    jogando = false;
+                            } else {
+                                jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X'; //Os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
+                            }
             }
         }
     }
