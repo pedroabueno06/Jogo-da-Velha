@@ -1,6 +1,6 @@
 import java.util.Scanner;
-public class Cronometro {
-    private Thread cronometro;
+public class Cronometro1 {
+    private Thread cronometro1;
     private volatile boolean tempoEsgotado; //O volatile é utilizado para indicar que uma variável pode ser modificada por diferentes threads de forma simultânea
     private long tempoInicial;
     private long tempoLimite;
@@ -9,7 +9,7 @@ public class Cronometro {
     private boolean Enter;
     private Scanner scanner;
     
-public Cronometro() {
+public Cronometro1() {
     this.scanner = new Scanner(System.in);
     this.tempoEsgotado = false;
     this.Enter = false;
@@ -35,7 +35,7 @@ public Cronometro() {
     }
     
     private void mostrarTempo() {
-        cronometro = new Thread (() -> {
+        cronometro1 = new Thread (() -> {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -63,7 +63,7 @@ public Cronometro() {
                                 }
             }
         });
-        cronometro.start();
+        cronometro1.start();
     }
 
     public void Enter() {
@@ -74,8 +74,8 @@ public Cronometro() {
     }
 
     public void pararCronometro() {
-        if (cronometro != null) {
-            cronometro.interrupt();
+        if (cronometro1 != null) {
+            cronometro1.interrupt();
         }
         tempoLimite = 0;
         tempoEsgotado = true;
