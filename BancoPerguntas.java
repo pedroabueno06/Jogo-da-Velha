@@ -52,7 +52,8 @@ public BancoPerguntas() {
                                                 " controle é transferido para o bloco try-catch mais próximo que possa tratar a exceção. Também, a palavra-chave é o oposto de “Catch”.\n");
                                                 perguntasIniciante.add(pergunta2);
             
-            Perguntas pergunta3 = new Perguntas("3- Qual modificador de acesso restringe o acesso aos membros de uma classe apenas a outros membros da mesma classe, tornando-os inacessíveis diretamente por objetos de outras classes? Página do Livro: 252.\n",
+            Perguntas pergunta3 = new Perguntas("3- Qual modificador de acesso restringe o acesso aos membros de uma classe apenas a outros membros da mesma classe, tornando-os inacessíveis diretamente" +
+                                                " por objetos de outras classes? Página do Livro: 252.\n",
                                         new String[] {"a) protected.\r\n", "b) internal.\r\n", "c) private.\r\n", "d) package.\r\n"},
                                             3, "Iniciante", "", "", null, false);
                                             pergunta3.setExplicacao("=== Explicações sobre a pergunta 3: ===\n" +
@@ -83,7 +84,8 @@ public BancoPerguntas() {
                                             perguntasIniciante.add(pergunta5);
 
         //Perguntas do capítulo 9 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
-            Perguntas pergunta6 = new Perguntas("6- Qual conceito de Programação Orientada a Objetos permite que uma nova classe (subclasse) adquira os membros (atributos e métodos) de uma classe existente (superclasse), promovendo a reutilização de código? Página do Livro: 284.\n",
+            Perguntas pergunta6 = new Perguntas("6- Qual conceito de Programação Orientada a Objetos permite que uma nova classe (subclasse) adquira os membros (atributos e métodos) de uma classe existente (superclasse)," +
+                                                " promovendo a reutilização de código? Página do Livro: 284.\n",
                                         new String[] {"a) Herança.\r\n", "b) Polimorfismo.\r\n", "c) Abstração.\r\n", "d) Encapsulamento.\r\n"},
                                             1, "Iniciante", "", "", null, false);
                                             pergunta6.setExplicacao("=== Explicações sobre a pergunta 6: ===\n" +
@@ -155,7 +157,8 @@ public BancoPerguntas() {
                                             " para garantir que classes distintas compartilhem comportamentos comuns, assim possibilitando o processamento polimórfico desses desses objetos.\n");
                                             perguntasIniciante.add(pergunta13);
 
-            Perguntas pergunta14 = new Perguntas("14- Qual palavra-chave uma classe usa na sua declaração para especificar que ela se compromete a fornecer implementações para todos os métodos abstratos definidos em uma ou mais interfaces? Páginas do Livro: 331 e 332.\n",
+            Perguntas pergunta14 = new Perguntas("14- Qual palavra-chave uma classe usa na sua declaração para especificar que ela se compromete a fornecer implementações para todos os métodos abstratos" +
+                                                " definidos em uma ou mais interfaces? Páginas do Livro: 331 e 332.\n",
                                         new String[] {"a) extends.\r\n", "b) interface.\r\n", "c) overrides.\r\n", "d) implements.\r\n"},
                                             4, "Iniciante", "", "", null, false);
                                             pergunta14.setExplicacao("=== Explicações sobre a pergunta 14: ===\n" +
@@ -165,7 +168,7 @@ public BancoPerguntas() {
                                             " Usada após a cláusula extends (se houver).\n");
                                             perguntasIniciante.add(pergunta14);
 
-            Perguntas pergunta15 = new Perguntas("15- Qual conceito de POO (Programação Orientada a Objetos) permite que objetos de diferentes classes relacionadas (que compartilham uma superclasse ou implementam uma interface) sejam tratados de forma genérica através de uma\n" + 
+            Perguntas pergunta15 = new Perguntas("15- Qual conceito de POO (Programação Orientada a Objetos) permite que objetos de diferentes classes relacionadas (que compartilham uma superclasse ou implementam uma interface) sejam tratados de forma genérica através de uma" + 
                                                 " através de uma referência de supertipo, e que uma chamada de método para essa referência execute o comportamento apropriado para o tipo real do objeto em tempo de execução? Páginas do Livro: 312 a 314.\n",
                                         new String[] {"a) Herança.\r\n", "b) Encapsulamento.\r\n", "c) Polimorfismo.\r\n", "d) Abstração.\r\n"},
                                             3, "Iniciante", "", "", null, false);
@@ -220,7 +223,8 @@ public BancoPerguntas() {
                                                 " regras importantes que oferecem garantia sobre a integridade do código. Pense se eles podem ter construtores, campos ou métodos.\n");
                                                 perguntasIntermediario.add(pergunta19);
 
-            Perguntas pergunta20 = new Perguntas("20- Qual palavra-chave é utilizada para declarar um membro (variável ou método) que pertence à classe em si, e não a instâncias específicas da classe, sendo compartilhado por todos os objetos dessa classe? Páginas do Livro: 265 e 268.\n",
+            Perguntas pergunta20 = new Perguntas("20- Qual palavra-chave é utilizada para declarar um membro (variável ou método) que pertence à classe em si, e não a instâncias específicas da classe, " +
+                                                "sendo compartilhado por todos os objetos dessa classe? Páginas do Livro: 265 e 268.\n",
                                             new String[] {"a) Class.\r\n", "b) Static.\r\n", "c) Shared.\r\n", "d) Const.\r\n"},
                                                 2, "Intermediário", "", "", null, false);
                                                 pergunta20.setExplicacao("=== Explicações sobre a pergunta 20: ===\n" +
@@ -242,7 +246,8 @@ public BancoPerguntas() {
                                                 " formar funcionalidades mais complexas.\n");
                                                 perguntasIntermediario.add(pergunta21);
 
-            Perguntas pergunta22 = new Perguntas("22- Qual modificador de acesso é utilizado em membros de uma superclasse para torná-los acessíveis diretamente pelas suas subclasses, mas não por classes que não são relacionadas por herança? Página do Livro: 286.\n",
+            Perguntas pergunta22 = new Perguntas("22- Qual modificador de acesso é utilizado em membros de uma superclasse para torná-los acessíveis diretamente pelas suas subclasses," +
+                                                " mas não por classes que não são relacionadas por herança? Página do Livro: 286.\n",
                                             new String[] {"a) private.\r\n", "b) package.\r\n", "c) protected.\r\n", "d) internal.\r\n"},
                                                 3, "Intermediário", "", "", null, false);
                                                 pergunta22.setExplicacao("=== Explicações sobre a pergunta 22: ===\n" +
@@ -283,7 +288,8 @@ public BancoPerguntas() {
                                                 perguntasIntermediario.add(pergunta25);
 
         //Perguntas do capítulo 10 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
-            Perguntas pergunta26 = new Perguntas("26- Como é chamado o processo em que o método específico a ser executado é determinado em tempo de execução, com base no tipo real do objeto referenciado, e não em tempo de compilação? Páginas do Livro: 313 a 316.\n",
+            Perguntas pergunta26 = new Perguntas("26- Como é chamado o processo em que o método específico a ser executado é determinado em tempo de execução, com base no tipo real do objeto referenciado," +
+                                                " e não em tempo de compilação? Páginas do Livro: 313 a 316.\n",
                                             new String[] {"a) Vinculação estática.\r\n", "b) Vinculação dinâmica.\r\n", "c) Encadeamento.\r\n", "d) Overloading.\r\n"},
                                                 2, "Intermediário", "", "", null, false);
                                                 pergunta26.setExplicacao("=== Explicações sobre a pergunta 26: ===\n" +
@@ -323,7 +329,8 @@ public BancoPerguntas() {
                                                 " implementação, ou seja, voltados apenas para definição e obrigatoriedade de implementação pelas classes.\n");
                                                 perguntasIntermediario.add(pergunta29);
 
-            Perguntas pergunta30 = new Perguntas("30- Se uma classe implementa uma interface, mas não fornece implementações concretas para todos os métodos abstratos declarados nessa interface, como essa classe deve ser declarada? Páginas do Livro: 331 e 332.\n",
+            Perguntas pergunta30 = new Perguntas("30- Se uma classe implementa uma interface, mas não fornece implementações concretas para todos os métodos abstratos declarados nessa interface," +
+                                                " como essa classe deve ser declarada? Páginas do Livro: 331 e 332.\n",
                                             new String[] {"a) Classe concreta.\r\n", "b) Classe abstrata.\r\n", "c) Classe privada.\r\n", "d) Classe pública.\r\n"},
                                                 2, "Intermediário", "", "", null, false);
                                                 pergunta30.setExplicacao("=== Explicações sobre a pergunta 30: ===\n" +
@@ -362,7 +369,8 @@ public BancoPerguntas() {
                                                 " é quando uma classe possui variáveis de instância que são, por sua vez, objetos de outras classes.\n");
                                                 perguntasAvancado.add(pergunta33);
 
-            Perguntas pergunta34 = new Perguntas("34- Para realizar cálculos monetários em Java com alta precisão e evitar problemas de arredondamento típicos de tipos de ponto flutuante (double, float), qual classe na API do Java é recomendada? Página do Livro: 271.\n",
+            Perguntas pergunta34 = new Perguntas("34- Para realizar cálculos monetários em Java com alta precisão e evitar problemas de arredondamento típicos de tipos de ponto flutuante (double, float)," +
+                                                " qual classe na API do Java é recomendada? Página do Livro: 271.\n",
                                             new String[] {"a) DecimalFormat.\r\n", "b) BigDecimal.\r\n", "c) MathPrecision.\r\n", "d) MoneyCalc.\r\n"},
                                                 2, "Avançado", "", "", null, false);
                                                 pergunta34.setExplicacao("=== Explicações sobre a pergunta 34: ===\n" +
@@ -373,7 +381,8 @@ public BancoPerguntas() {
                                                 perguntasAvancado.add(pergunta34);
 
         //Perguntas do capítulo 9 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
-            Perguntas pergunta35 = new Perguntas("35- Se um método sobrescrito em uma subclasse necessita executar parte da lógica implementada na versão da superclasse, como ele pode chamar explicitamente o método da superclasse? Página do Livro: 284 a 287.\n",
+            Perguntas pergunta35 = new Perguntas("35- Se um método sobrescrito em uma subclasse necessita executar parte da lógica implementada na versão da superclasse, como ele pode chamar explicitamente" +
+                                                " o método da superclasse? Página do Livro: 284 a 287.\n",
                                             new String[] {"a) parent.NomeDoMetrodo().\r\n", "b) super.NomeDoMetodo().\r\n", "c) base.nomeDoMetodo().\r\n", "d) thi.nomeDoMetodo().\r\n"},
                                                 2, "Avançado", "", "", null, false);
                                                 pergunta35.setExplicacao("=== Explicações sobre a pergunta 35: ===\n" +
@@ -411,14 +420,15 @@ public BancoPerguntas() {
 
         //Perguntas do capítulo 10 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
             Perguntas pergunta39 = new Perguntas("39- Interfaces são particularmente úteis para permitir o processamento polimórfico de quais tipos de classes? Página do Livro: 338.\n",
-                                            new String[] {"a) Classes não relacionadas que compartilham funcionalidades. -Alternativa correta.\r\n", "b) Apenas classes abstratas.\r\n", "c) Apenas subclasses de uma mesma classe.\r\n", "d) Apenas classes completas.\r\n"},
+                                            new String[] {"a) Classes não relacionadas que compartilham funcionalidades.\r\n", "b) Apenas classes abstratas.\r\n", "c) Apenas subclasses de uma mesma classe.\r\n", "d) Apenas classes completas.\r\n"},
                                                 1, "Avançado", "", "", null, false);
                                                 pergunta39.setExplicacao("=== Explicações sobre a pergunta 39: ===\n" +
                                                 "Interfaces são úteis quando se deseja processar de classes distintas de forma polimórfica, desde que essas classes compartilhem um mesmo conjunto" +
                                                 " de comportamentos definidos pela interface. Classes que não estão necessariamente relacionadas por herança, mas que compartilham uma funcionalidade em comum.\n");
                                                 perguntasAvancado.add(pergunta39);
 
-            Perguntas pergunta40 = new Perguntas("40- Qual recurso introduzido no Java SE 8 permite adicionar novos métodos a uma interface existente, fornecendo uma implementação padrão no corpo da interface, sem a necessidade de modificar todas as classes que já implementam essa interface? Página do Livro: 340.\n",
+            Perguntas pergunta40 = new Perguntas("40- Qual recurso introduzido no Java SE 8 permite adicionar novos métodos a uma interface existente, fornecendo uma implementação padrão no corpo da interface," +
+                                                " sem a necessidade de modificar todas as classes que já implementam essa interface? Página do Livro: 340.\n",
                                             new String[] {"a) Métodos default.\r\n", "b) Métodos abstract.\r\n", "c) Métodos final.\r\n", "d) Métodos static.\r\n" },
                                                 1, "Avançado", "", "", null, false);
                                                 pergunta40.setExplicacao("=== Explicações sobre a pergunta 40: ===\n" +
@@ -436,7 +446,8 @@ public BancoPerguntas() {
                                                 " passados como parâmetros ou executados de forma flexível.\n");
                                                 perguntasAvancado.add(pergunta41);
 
-            Perguntas pergunta42 = new Perguntas("42- O estudo de caso que utiliza a interface Payable demonstra como processar polimorficamente objetos de classes como Invoice e Employee que, embora não relacionadas por herança direta, precisam calcular uma \"quantia a pagar\". Qual método essa interface exige que as classes implementadoras forneçam? Página do Livro: 338.\n",
+            Perguntas pergunta42 = new Perguntas("42- O estudo de caso que utiliza a interface Payable demonstra como processar polimorficamente objetos de classes como Invoice e Employee que, embora não relacionadas por herança direta," +
+                                                " precisam calcular uma \\\"quantia a pagar\\\". Qual método essa interface exige que as classes implementadoras forneçam? Página do Livro: 338.\n",
                                             new String[] {"a) calculateTotal.\r\n", "b) processPayment.\r\n", "c) getPaymentAmount.\r\n", "d) makePayment."},
                                                 3, "Avançado", "", "", null, false);
                                                 explicacao.setExplicacao("=== Explicações sobre a pergunta 42: ===\n" +
