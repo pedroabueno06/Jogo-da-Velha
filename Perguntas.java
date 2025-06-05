@@ -179,7 +179,7 @@ public class Perguntas {
 
                         do { 
                             if (PodeUsarDica && moedas >0) {
-                                System.out.println("\n=== Dicas disponíveis: ===");
+                                System.out.println("\n===Dicas disponíveis===");
                                 System.out.println("1- Remover 1 alternativa (custo: 5 moedas).");
                                 System.out.println("\n2- Remover 2 alternativas (custo: 10 moedas).");
                                 System.out.println("\n3- Remover 3 alternativas (custo: 15 moedas).");
