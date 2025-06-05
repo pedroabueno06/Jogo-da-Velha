@@ -84,7 +84,7 @@ public BancoPerguntas() {
 
         //Perguntas do capítulo 9 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
             Perguntas pergunta6 = new Perguntas("6- Qual conceito de Programação Orientada a Objetos permite que uma nova classe (subclasse) adquira os membros (atributos e métodos) de uma classe existente (superclasse), promovendo a reutilização de código? Página do Livro: 284.\n",
-                                        new String[] {"a) Herança.\r\n", "b) Polimorfismo.\r\n", "c)Abstração.\r\n", "d) Encapsulamento.\r\n"},
+                                        new String[] {"a) Herança.\r\n", "b) Polimorfismo.\r\n", "c) Abstração.\r\n", "d) Encapsulamento.\r\n"},
                                             1, "Iniciante", "", "", null, false);
                                             pergunta6.setExplicacao("=== Explicações sobre a pergunta 6: ===\n" +
                                             "O conceito de POO permite que uma nova classe possa adquirir atributos e comportamentos já definidos em uma classe já existente, assim facilitando a reutilização e a organização" +
