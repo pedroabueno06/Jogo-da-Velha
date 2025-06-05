@@ -3,11 +3,12 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 public class Perguntas {
+    
     //Método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
     public static String lerEntrada (Scanner scanner) {
         String entrada = scanner.nextLine();
             if (entrada.equals ("/")) {
-                    System.out.println("Uma pena você não querer jogar nosso jogo, por tanto o jogo está encerrado.");
+                    System.out.println("\nUma pena você não querer jogar o Deitel VOOX, com isso, o jogo está encerrado.");
                         System.exit(0);
             }
             return entrada;
@@ -234,10 +235,20 @@ public class Perguntas {
 
                         this.usouDica = true;
                         continue;
-                        
+                
+                // Caso o usuário queira responder a pergunta sem recorrer as explicações ou dicas:        
+                } else if (resposta.equals("2")) {
+                    System.out.println("Digite o número da resposta (1-" + alternativas.length + "):");
+                    resposta = lerEntrada (scanner);
+
+                    try {
+                        return Integer.parseInt(resposta) == respostaCorreta;
+                    } catch (NumberFormatException e) {
+                        return false;
+                    }
                 }
                                         
-                    //Volta na pergunta em questão:
+                    //Faz com que a questão apareça novamente caso o usuário recorra as explicações ou dicas::
                         System.out.println("\n" + pergunta);
                             for (int i = 0; i < alternativas.length; i++) {
                                 System.out.println((i+1) + ") " + alternativas[i]);
