@@ -24,8 +24,10 @@ public class Jogo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner (System.in);
         Jogo jogo = new Jogo();
-            int errosConsecutivos = 0; //variável para armazenar os erros consecutivos do jogador
-            int[] ultimaJogada = new int[2]; //variável para armazenar a última jogada do jogador
+            int errosConsecutivosX = 0; //Variável para armazenar os erros consecutivos do jogador X
+            int errosConsecutivosO = 0; //Variável para armazenar os erros consecutivos do jogador O
+            int[] ultimaJogadaX = new int[2]; //Variável para armazenar a última jogada do jogador X
+            int[] ultimaJogadaO = new int[2]; //Variável para armazenar a última jogada do jogador O
             Perguntas ultimaPerguntaCorreta = null; //Armazena a última pergunta correta respondida pelo jogador
             Perguntas perguntaAnterior = null; //Armazena a última pergunta respondida pelo jogador, para que não que não seja repetida em caso de acerto
             String dificuldade; // Variável para os jogadores escolherem a dificuldade das perguntas que irão ser feitas durante o jogo
@@ -230,7 +232,7 @@ public class Jogo {
 
                             boolean jogando = true;
 
-                            Cronometro cronometro = new Cronometro();
+                            Cronometro1 cronometro = new Cronometro1();
 
                             while (jogando) {
                             System.out.println("\nEstado atual do tabuleiro:");
@@ -304,46 +306,69 @@ public class Jogo {
 
                             if (respostaCorreta) {
                                 System.out.println("Sua resposta está correta!");
-                                    errosConsecutivos = 0; //Reinicia os erros consecutivos
-                                        perguntaAnterior = null;                                                                                      
+                                    //Faz com que os erros do jogador atual sejão zerados:
+                                    if (jogadorAtual == 'X') {
+                                        errosConsecutivosX = 0;
 
-                            //Lógica se o jogador acertar a pergunta:
-                            System.out.println("Digite a linha do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "): ");
-                                int linha = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
-                                                        
-                            System.out.println("Digite a coluna do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "): ");
-                                int coluna = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
-                                    cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
+                                    } else {
+                                        errosConsecutivosO = 0;
+                                    }
+                                    perguntaAnterior = null;
 
-                            if (tabuleiroJogoDaVelha.realizarJogada(linha, coluna, jogadorAtual)) {
-                                ultimaJogada[0] = linha; //Armaneza a última jogada feita pelo jogador
-                                    ultimaJogada[1] = coluna; //Armazena a última jogada feita pelo jogador
+                                //Lógica se o jogador acertar a pergunta:
+                                System.out.println("Digite a linha do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "): ");
+                                    int linha = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
+                                                            
+                                System.out.println("Digite a coluna do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "): ");
+                                    int coluna = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
+                                        cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
 
-                                //Verifica se o jogo teve algum vencedor:
-                                if (tabuleiroJogoDaVelha.verificarVitoria(jogadorAtual)) {
-                                    vencedor = getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2);
-                                        tabuleiroJogoDaVelha.mostrarTabuleiro();
-                                            System.out.println("Parabéns " + vencedor + ", você venceu o jogo!");
-                                                jogoCompleto = true;
-                                                    jogando = false;
-                                                        continue;
+                                //Armazena a jogada de cada um dos jogadores:
+                                if (tabuleiroJogoDaVelha.realizarJogada(linha, coluna, jogadorAtual)) {
+                                   if (jogadorAtual == 'X') {
+                                        ultimaJogadaX[0] = linha;
+                                            ultimaJogadaX[1] = coluna;
+
+                                   } else {
+                                        ultimaJogadaO[0] = linha;
+                                            ultimaJogadaO[1] = coluna;
+                                   }
+
+                                    //Verifica se o jogo teve algum vencedor:
+                                    if (tabuleiroJogoDaVelha.verificarVitoria(jogadorAtual)) {
+                                        vencedor = getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2);
+                                            tabuleiroJogoDaVelha.mostrarTabuleiro();
+                                                System.out.println("Parabéns " + vencedor + ", você venceu o jogo!");
+                                                    jogoCompleto = true;
+                                                        jogando = false;
+                                                            continue;
                             }
                                 }
                                                             
                             } else {
-                            //Verifica se o jogador errou a pergunta:
-                            System.out.println("Sua resposta está incorreta!");
-                                errosConsecutivos++;
-                                    cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
+                                //Verifica se o jogador errou a pergunta:
+                                System.out.println("\nSua resposta está incorreta!");
 
-                            if (errosConsecutivos == 2) {
-                                System.out.println("Você errou duas perguntas consecutivas, portanto sua última jogada será desfeita.");
-                                    tabuleiroJogoDaVelha.removerJogada(ultimaJogada[0], ultimaJogada[1]);
-                                        errosConsecutivos = 0; //Reinicia os erros consecutivos
-                                            cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
-
-                            }    
+                                //Verifica se o Jogador não errou duas perguntas consecutivas
+                                if (jogadorAtual == 'X') {
+                                    errosConsecutivosX++;
+                                    if (errosConsecutivosX == 2) {
+                                        System.out.println("Jogador X (Paul Deitel) errou duas perguntas consecutivas, por tanto, sua última jogada será desfeita!");
+                                            tabuleiroJogoDaVelha.removerJogada(ultimaJogadaX[0], ultimaJogadaX[1]);
+                                                errosConsecutivosX = 0;
+                                    }
+                                    
+                                } else {
+                                    errosConsecutivosO++;
+                                        if (errosConsecutivosO == 2) {
+                                            System.out.println("Jogador o (Harvey Deitel) errou duas perguntas consecutivas, por tanto, sua última jogada será desfeita!");
+                                                tabuleiroJogoDaVelha.removerJogada(ultimaJogadaO[0], ultimaJogadaO[1]);
+                                                    errosConsecutivosO = 0;
+                                        }
                                 }
+                                cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
+                                
+                            }
                                                                                                                        
                             //verifica se o jogo der empate:
                             if (tabuleiroJogoDaVelha.verificaEmpate()) {
