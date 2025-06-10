@@ -1,9 +1,7 @@
 package com.repositorio;
-//Imports das classes que componhem o jogo:
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
 import com.Explicacao;
 import com.Perguntas;
 
