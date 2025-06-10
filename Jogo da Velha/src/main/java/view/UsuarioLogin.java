@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import javax.swing.JOptionPane;
 public class UsuarioLogin {
     private static final String DB_URL = "jdbc:sqlite:usuarios.db";
