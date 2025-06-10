@@ -1,5 +1,4 @@
 package com.example;
-//Imports das classes que componhem o jogo:
 import java.util.Random;
 import java.util.Scanner;
 
@@ -52,7 +51,6 @@ public class Jogo {
                     String acao1 = lerEntrada(scanner);
             
             if (acao1.equals ("0")) {
-                System.out.println("\n===Regras do jogo Deitel VOOX===\n");
                 System.out.println("1- Este é um jogo da velha que tem como conteúdo, a linguagem de programação 'Java', baseado nos capítulos 8,9 e 10 do livro Java: Como Programar.\n");
                 System.out.println("2- Necessita de 2 jogadores para ser jogado.\n");
                 System.out.println("3- Os jogadores devem escolher entre as seguintes dificuldades de perguntas:\n");
