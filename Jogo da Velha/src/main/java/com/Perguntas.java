@@ -1,10 +1,8 @@
 package  com;
-//Biblioteca(s) utilizadas para o funcionamento do Jogo:
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-
 public class Perguntas {
     //Método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
     public static String lerEntrada (Scanner scanner) {
