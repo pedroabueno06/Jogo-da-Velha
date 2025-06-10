@@ -4,7 +4,6 @@ import java.util.Random;
 import java.util.Scanner;
 import com.Explicacao;
 import com.Perguntas;
-
 public class BancoPerguntas {
     
     //Método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
