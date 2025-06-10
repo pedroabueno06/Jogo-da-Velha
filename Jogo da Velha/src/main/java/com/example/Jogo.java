@@ -2,6 +2,7 @@ package com.example;
 import java.util.Random;
 import java.util.Scanner;
 
+//Imports das classes que componhem o jogo:
 import com.Cronometro1;
 import com.Perguntas;
 import com.repositorio.BancoPerguntas;
