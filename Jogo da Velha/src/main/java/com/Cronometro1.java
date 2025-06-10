@@ -1,5 +1,4 @@
 package com;
-//Biblioteca(s) utilizadas para o funcionamento do Jogo:
 import java.util.Scanner;
 public class Cronometro1 {
     private Thread cronometro1;
