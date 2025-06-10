@@ -45,11 +45,11 @@ public class Jogo {
             String vencedor; //Variável que verifica qual jogador é o vencedor do jogo
             String resetarDicas;
             
-            System.out.println("===Seja bem vindo ao Deitel VOOX===");
-                System.out.println("\nDigite 0 para saber as regras, 1 para iniciar o jogo ou / para encerrar.");
-                    String acao1 = lerEntrada(scanner);
+            System.out.println("\nDigite 0 para saber as regras, 1 para iniciar o jogo ou / para encerrar.");
+                String acao1 = lerEntrada(scanner);
             
             if (acao1.equals ("0")) {
+                System.out.println("\n===Regras do Deitel VOOX===");
                 System.out.println("1- Este é um jogo da velha que tem como conteúdo, a linguagem de programação 'Java', baseado nos capítulos 8,9 e 10 do livro Java: Como Programar.\n");
                 System.out.println("2- Necessita de 2 jogadores para ser jogado.\n");
                 System.out.println("3- Os jogadores devem escolher entre as seguintes dificuldades de perguntas:\n");
