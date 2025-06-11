@@ -5,9 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import javax.swing.JOptionPane;
 public class UsuarioLogin {
     private static final String DB_URL = "jdbc:sqlite:usuarios.db";
+    //Armazena o nome do usuário que estiver logado:
+    public static String nomeUsuarioLogado = "";
+
 
     public static void main(String[] args) {
         criarTabelaUsuarios();
@@ -86,7 +90,8 @@ public class UsuarioLogin {
                             ResultSet rs = pstmt.executeQuery();
                     
                     if (rs.next()) {
-                        JOptionPane.showMessageDialog(null, "Login realizado com sucesso. Bem vindo, " + rs.getString("nome") + "!");
+                        nomeUsuarioLogado = rs.getString("nome"); //Salva o nome do usuário que estiver logado
+                        JOptionPane.showMessageDialog(null, "Login realizado com sucesso. Bem vindo, " + nomeUsuarioLogado + "!");
                             iniciarJogo();
                     } else {
                         JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos.");
