@@ -52,7 +52,7 @@ public class Jogo {
             if (acao1.equals ("0")) {
                 System.out.println("\n===Regras do Deitel VOOX===");
                 System.out.println("1- Este é um jogo da velha que tem como conteúdo, a linguagem de programação 'Java', baseado nos capítulos 8,9 e 10 do livro Java: Como Programar.\n");
-                System.out.println("2- Antes de iniciarem o jogo, os jogadores devem realizar um cadastro para poderem se logar no jogo.");
+                System.out.println("2- Antes de iniciar o jogo, os jogadores devem realizar um cadastro para poderem se logar no jogo.");
                 System.out.println("3- Necessita de 2 jogadores para ser jogado.\n");
                 System.out.println("4- Os jogadores devem escolher entre as seguintes dificuldades de perguntas:\n");
                 System.out.println("- Iniciante; \n");
@@ -105,7 +105,7 @@ public class Jogo {
                 if (acao1.equals ("0")) {
                     System.out.println("\n===Regras do Deitel VOOX===");
                 System.out.println("1- Este é um jogo da velha que tem como conteúdo, a linguagem de programação 'Java', baseado nos capítulos 8,9 e 10 do livro Java: Como Programar.\n");
-                System.out.println("2- Antes de iniciarem o jogo, os jogadores devem realizar um cadastro para poderem se logar no jogo.");
+                System.out.println("2- Antes de iniciar o jogo, os jogadores devem realizar um cadastro para poderem se logar no jogo.");
                 System.out.println("3- Necessita de 2 jogadores para ser jogado.\n");
                 System.out.println("4- Os jogadores devem escolher entre as seguintes dificuldades de perguntas:\n");
                 System.out.println("- Iniciante; \n");
