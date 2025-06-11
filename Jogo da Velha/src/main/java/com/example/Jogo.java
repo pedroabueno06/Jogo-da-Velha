@@ -6,6 +6,8 @@ import com.Cronometro1;
 import com.Perguntas;
 import com.repositorio.BancoPerguntas;
 import com.repositorio.service.TabuleiroJogoDaVelha;
+
+import  view.UsuarioLogin;
 public class Jogo {
     
     //Método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
@@ -45,6 +47,7 @@ public class Jogo {
             String escolhaJogador2 = ""; //Inicializa a variável com string vazia
             String vencedor; //Variável que verifica qual jogador é o vencedor do jogo
             String resetarDicas;
+            String nomeJogador = UsuarioLogin.nomeUsuarioLogado;
             
             System.out.println("\nDigite 0 para saber as regras, 1 para iniciar o jogo ou / para encerrar.");
                 String acao1 = lerEntrada(scanner);
@@ -198,13 +201,13 @@ public class Jogo {
                         //O personagem que não for escolhido pelo jogador 1, será atruído automaticamnte ao jogador 2:
                         if (escolhaJogador1.equals("Paul Deitel (X)")) {
                             escolhaJogador2 = "Harvey Deitel (O)";
-                                System.out.println("\nJogador 1: Paul Deitel (X)");
+                                System.out.println("\nJogador 1: " + nomeJogador + " - " + "Paul Deitel (X)");
                                     System.out.println("Jogador 2: Harvey Deitel (O)");
                             
                                 } else {
-                                escolhaJogador2 = "Paul Deitel (X)";
-                                    System.out.println("\nJogador 1: Harvey Deitel (O)");
-                                        System.out.println("Jogador 2: Paul Deitel (X) ");
+                                escolhaJogador2 = "Harvey Deitel (O)";
+                                    System.out.println("\nJogador 1: " + nomeJogador + " - " + "Harvey Deitel (O)");
+                                        System.out.println("Jogador 2: Paul Deitel (X)");
                         }
 
                         //Escolha do tipo de tabuleiro:
@@ -257,7 +260,7 @@ public class Jogo {
                                 tabuleiroJogoDaVelha.mostrarTabuleiro();
 
                             //Mostrar o personagem que cada jogador escolheu:
-                            System.out.println("Jogador 1: (" + escolhaJogador1 + ")"  + ".");
+                            System.out.println("Jogador 1: " + nomeJogador + " - " + "(" + escolhaJogador1 + ")"  + ".");
                             System.out.println("Jogador 2: (" + escolhaJogador2 + ")" + ".");
 
                             //Mostra quem é o jogador da vez:
