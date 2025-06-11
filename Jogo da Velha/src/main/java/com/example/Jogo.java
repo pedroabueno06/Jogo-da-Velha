@@ -202,12 +202,12 @@ public class Jogo {
                         if (escolhaJogador1.equals("Paul Deitel (X)")) {
                             escolhaJogador2 = "Harvey Deitel (O)";
                                 System.out.println("\nJogador 1: " + nomeJogador + " - " + "Paul Deitel (X)");
-                                    System.out.println("Jogador 2: Harvey Deitel (O)");
+                                    System.out.println("Jogador 2: Anna - Harvey Deitel (O)");
                             
                                 } else {
                                 escolhaJogador2 = "Harvey Deitel (O)";
                                     System.out.println("\nJogador 1: " + nomeJogador + " - " + "Harvey Deitel (O)");
-                                        System.out.println("Jogador 2: Paul Deitel (X)");
+                                        System.out.println("Jogador 2: Anna - Paul Deitel (X)");
                         }
 
                         //Escolha do tipo de tabuleiro:
@@ -261,7 +261,7 @@ public class Jogo {
 
                             //Mostrar o personagem que cada jogador escolheu:
                             System.out.println("Jogador 1: " + nomeJogador + " - " + "(" + escolhaJogador1 + ")"  + ".");
-                            System.out.println("Jogador 2: (" + escolhaJogador2 + ")" + ".");
+                            System.out.println("Jogador 2: Anna - (" + escolhaJogador2 + ")" + ".");
 
                             //Mostra quem é o jogador da vez:
                             System.out.println("\nVez do " + getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2) + ":");
