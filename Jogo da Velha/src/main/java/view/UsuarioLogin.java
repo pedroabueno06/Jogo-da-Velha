@@ -9,7 +9,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 public class UsuarioLogin {
     private static final String DB_URL = "jdbc:sqlite:usuarios.db";
-    //Armazena o nome do usuário que estiver logado:
+    //armazena o nome do usuário que estiver logado:
     public static String nomeUsuarioLogado = "";
 
 
@@ -49,7 +49,7 @@ public class UsuarioLogin {
         }
     }
 
-    //Informações que o usuário deve fornecer ao sistema para se cadastrar:
+    //informações que o usuário deve fornecer ao sistema para se cadastrar:
     private static void cadastrarUsuario() {
         String nome = JOptionPane.showInputDialog("Nome completo: ");
             String usuario = JOptionPane.showInputDialog("Nome de usuário: ");
@@ -65,7 +65,7 @@ public class UsuarioLogin {
                             pstmt.setString(2, usuario);
                                 pstmt.setString(3, email);
                                     pstmt.setString(4, senha);
-                                    //Sistema salva as informações no banco de dados:
+                                    //sistema salva as informações no banco de dados:
                                         pstmt.executeUpdate();
                                             JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");
                                                 exibirMenuLogin();
@@ -75,7 +75,7 @@ public class UsuarioLogin {
                     }
     }
 
-    //Usuário realiza o login para assim o jogo começar:
+    //usuário realiza o login para assim o jogo começar:
     private static void fazerLogin() {
         String usuario = JOptionPane.showInputDialog("Nome de usuário: ");
             String senha = JOptionPane.showInputDialog("Senha: ");
@@ -90,7 +90,7 @@ public class UsuarioLogin {
                             ResultSet rs = pstmt.executeQuery();
                     
                     if (rs.next()) {
-                        nomeUsuarioLogado = rs.getString("nome"); //Salva o nome do usuário que estiver logado
+                        nomeUsuarioLogado = rs.getString("nome"); //salva o nome do usuário que estiver logado
                         JOptionPane.showMessageDialog(null, "Login realizado com sucesso. Bem vindo, " + nomeUsuarioLogado + "!");
                             iniciarJogo();
                     } else {

@@ -10,7 +10,7 @@ import com.repositorio.service.TabuleiroJogoDaVelha;
 import  view.UsuarioLogin;
 public class Jogo {
     
-    //Método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
+    //método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
     public static String lerEntrada (Scanner scanner) {
         String entrada = scanner.nextLine();
             if (entrada.equals ("/")) {
@@ -20,7 +20,7 @@ public class Jogo {
             return entrada;
         }
 
-    //Método para fazer com que o jogo mostre o nome do jogador quando for sua vez de jogar e anunciar seu nome se for o vencedor do jogo:
+    //método para fazer com que o jogo mostre o nome do jogador quando for sua vez de jogar e anunciar seu nome se for o vencedor do jogo:
     public static String getPersonagem (char simbolo, String escolhaJogador1, String escolhaJogador2) {
         if (simbolo == 'X') {
             return "Paul Deitel";
@@ -31,21 +31,21 @@ public class Jogo {
 
     public static void main(String[] args) {
         BancoPerguntas banco = new BancoPerguntas();
-        //Faz com que apareça a tela de login  quando o usuário tecla run na classe principal que no caso é esta:
+        //faz com que apareça a tela de login  quando o usuário tecla run na classe principal que no caso é esta:
             view.UsuarioLogin.main(null);
 
         Scanner scanner = new Scanner (System.in);
         Jogo jogo = new Jogo();
-            int errosConsecutivosX = 0; //Variável para armazenar os erros consecutivos do jogador X
-            int errosConsecutivosO = 0; //Variável para armazenar os erros consecutivos do jogador O
-            int[] ultimaJogadaX = new int[2]; //Variável para armazenar a última jogada do jogador X
-            int[] ultimaJogadaO = new int[2]; //Variável para armazenar a última jogada do jogador O
-            Perguntas ultimaPerguntaCorreta = null; //Armazena a última pergunta correta respondida pelo jogador
-            Perguntas perguntaAnterior = null; //Armazena a última pergunta respondida pelo jogador, para que não que não seja repetida em caso de acerto
-            String dificuldade; // Variável para os jogadores escolherem a dificuldade das perguntas que irão ser feitas durante o jogo
-            String escolhaJogador1; //Váriável para o jogador 1 escolher seu personagem
-            String escolhaJogador2 = ""; //Inicializa a variável com string vazia
-            String vencedor; //Variável que verifica qual jogador é o vencedor do jogo
+            int errosConsecutivosX = 0; //variável para armazenar os erros consecutivos do jogador X
+            int errosConsecutivosO = 0; //variável para armazenar os erros consecutivos do jogador O
+            int[] ultimaJogadaX = new int[2]; //variável para armazenar a última jogada do jogador X
+            int[] ultimaJogadaO = new int[2]; //variável para armazenar a última jogada do jogador O
+            Perguntas ultimaPerguntaCorreta = null; //armazena a última pergunta correta respondida pelo jogador
+            Perguntas perguntaAnterior = null; //armazena a última pergunta respondida pelo jogador, para que não que não seja repetida em caso de acerto
+            String dificuldade; // variável para os jogadores escolherem a dificuldade das perguntas que irão ser feitas durante o jogo
+            String escolhaJogador1; //váriável para o jogador 1 escolher seu personagem
+            String escolhaJogador2 = ""; //inicializa a variável com string vazia
+            String vencedor; //variável que verifica qual jogador é o vencedor do jogo
             String resetarDicas;
             String nomeJogador = UsuarioLogin.nomeUsuarioLogado;
             
@@ -186,7 +186,7 @@ public class Jogo {
                         } while (!dificuldade.equals("1") && !dificuldade.equals("2") && !dificuldade.equals("3"));
                 }
 
-                //Escolha dos personagens que serão atribuídos ao X e O:
+                //escolha dos personagens que serão atribuídos ao X e O:
                 System.out.println("\nEscolha de personagens: \n");
                     System.out.println("Jogador 1 escolhe primeiro:");
                         System.out.println("Digite Paul Deitel (X) para escolher o X e Harvey Deitel (O) para ser O.");
@@ -198,7 +198,7 @@ public class Jogo {
                                     escolhaJogador1 = lerEntrada(scanner);
                         }
 
-                        //O personagem que não for escolhido pelo jogador 1, será atruído automaticamnte ao jogador 2:
+                        //o personagem que não for escolhido pelo jogador 1, será atruído automaticamnte ao jogador 2:
                         if (escolhaJogador1.equals("Paul Deitel (X)")) {
                             escolhaJogador2 = "Harvey Deitel (O)";
                                 System.out.println("\nJogador 1: " + nomeJogador + " - " + "Paul Deitel (X)");
@@ -210,7 +210,7 @@ public class Jogo {
                                         System.out.println("Jogador 2: Anna - Paul Deitel (X)");
                         }
 
-                        //Escolha do tipo de tabuleiro:
+                        //escolha do tipo de tabuleiro:
                         System.out.println("\nEscolha do tipo de tabuleiro:");
                         System.out.println("Digite 1 para escolher o tabuleiro 3x3.");
                         System.out.println("\nDigite 2 para escolher o tabuleiro 4x4.");
@@ -236,7 +236,7 @@ public class Jogo {
                         }
                         
                         BancoPerguntas bancoPerguntas = new BancoPerguntas();
-                        //Faz o sorteio sobre qual jogador vai começar o jogo:
+                        //faz o sorteio sobre qual jogador vai começar o jogo:
                         boolean jogoCompleto = false;
                             while (!jogoCompleto) {
                                 TabuleiroJogoDaVelha tabuleiroJogoDaVelha = new TabuleiroJogoDaVelha (acao1);
@@ -259,33 +259,33 @@ public class Jogo {
                             System.out.println("\nEstado atual do tabuleiro:");
                                 tabuleiroJogoDaVelha.mostrarTabuleiro();
 
-                            //Mostrar o personagem que cada jogador escolheu:
+                            //mostrar o personagem que cada jogador escolheu:
                             System.out.println("Jogador 1: " + nomeJogador + " - " + "(" + escolhaJogador1 + ")"  + ".");
                             System.out.println("Jogador 2: Anna - (" + escolhaJogador2 + ")" + ".");
 
-                            //Mostra quem é o jogador da vez:
+                            //mostra quem é o jogador da vez:
                             System.out.println("\nVez do " + getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2) + ":");
 
                             //inicia o crônometro para o jogador responder a pergunta e fazer sua jogada:
-                            System.out.println("Você tem 1 minuto para responder a pergunta e fazer a sua jogada!");
+                            System.out.println("Você tem 1 minuto para responder a pergunta e fazer sua jogada!");
                                 cronometro.iniciar();
 
-                            //Verificação de tempo antes de processar a resposta:
+                            //verificação de tempo antes de processar a resposta:
                             if (cronometro.tempoEsgotado()) {
                                 cronometro.Enter();
                                     cronometro.pararCronometro();
-                                        jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X'; //Os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
+                                        jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X'; //os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
                                             continue;
                             }
 
-                            //Faz o sorteio da pergunta e a aplica:
+                            //faz o sorteio da pergunta e a aplica:
                             Perguntas perguntasAtual;
                             if (perguntaAnterior != null) {
                                 perguntasAtual = perguntaAnterior;
                                     perguntaAnterior = null;
                             } else if (ultimaPerguntaCorreta != null) {
                                 perguntasAtual = ultimaPerguntaCorreta;
-                                    ultimaPerguntaCorreta = null; //Faz com que a última pergunta acertada não seja repetida
+                                    ultimaPerguntaCorreta = null; //faz com que a última pergunta acertada não seja repetida
                             
                             } else {
                                 perguntasAtual = bancoPerguntas.sortearPerguntas(dificuldade);
@@ -294,7 +294,7 @@ public class Jogo {
 
                             if (perguntasAtual == null) {
                                 System.out.println("Erro ao carregar pergunta. Tente novamente");
-                                    cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
+                                    cronometro.pararCronometro(); //crônometro para se a pergunta der erro
                                         continue;
                             }
 
@@ -304,11 +304,11 @@ public class Jogo {
                                 int moedasJogadorAtual = (jogadorAtual == 'X') ? moedasJogador1 : moedasJogador2;
                                     boolean respostaCorreta = perguntasAtual.fazerPergunta(scanner, podeUsarDicaAtual, moedasJogadorAtual);
                                                         
-                            //Verificação de tempo antes de processar a resposta:
+                            //verificação de tempo antes de processar a resposta:
                             if (cronometro.tempoEsgotado()) {
                                 cronometro.Enter();
                                     cronometro.pararCronometro();
-                                        jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X'; //Os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
+                                        jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X'; //os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
                                             continue;
                             }
 
@@ -327,8 +327,8 @@ public class Jogo {
                             }
 
                             if (respostaCorreta) {
-                                System.out.println("Sua resposta está correta!");
-                                    //Faz com que os erros do jogador atual sejão zerados:
+                                System.out.println("\nSua resposta está correta!");
+                                    //faz com que os erros do jogador atual sejão zerados:
                                     if (jogadorAtual == 'X') {
                                         errosConsecutivosX = 0;
 
@@ -337,15 +337,15 @@ public class Jogo {
                                     }
                                     perguntaAnterior = null;
 
-                                //Lógica se o jogador acertar a pergunta:
-                                System.out.println("Digite a linha do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "):");
-                                    int linha = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
+                                //lógica se o jogador acertar a pergunta:
+                                System.out.println("\nDigite a linha do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "):");
+                                    int linha = Integer.parseInt (lerEntrada (scanner)); //integer está encapsulando o valor int e transformando em um objeto
                                                             
                                 System.out.println("\nDigite a coluna do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "):");
-                                    int coluna = Integer.parseInt (lerEntrada (scanner)); //Integer está encapsulando o valor int e transformando em um objeto
-                                        cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
+                                    int coluna = Integer.parseInt (lerEntrada (scanner)); //integer está encapsulando o valor int e transformando em um objeto
+                                        cronometro.pararCronometro(); //crônometro para se a pergunta der erro
 
-                                //Armazena a jogada de cada um dos jogadores:
+                                //armazena a jogada de cada um dos jogadores:
                                 if (tabuleiroJogoDaVelha.realizarJogada(linha, coluna, jogadorAtual)) {
                                    if (jogadorAtual == 'X') {
                                         ultimaJogadaX[0] = linha;
@@ -356,7 +356,7 @@ public class Jogo {
                                             ultimaJogadaO[1] = coluna;
                                    }
 
-                                    //Verifica se o jogo teve algum vencedor:
+                                    //verifica se o jogo teve algum vencedor:
                                     if (tabuleiroJogoDaVelha.verificarVitoria(jogadorAtual)) {
                                         vencedor = getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2);
                                             tabuleiroJogoDaVelha.mostrarTabuleiro();
@@ -368,10 +368,10 @@ public class Jogo {
                                 }
                                                             
                             } else {
-                                //Verifica se o jogador errou a pergunta:
+                                //verifica se o jogador errou a pergunta:
                                 System.out.println("\nSua resposta está incorreta!");
 
-                                //Verifica se o Jogador não errou duas perguntas consecutivas
+                                //verifica se o Jogador não errou duas perguntas consecutivas
                                 if (jogadorAtual == 'X') {
                                     errosConsecutivosX++;
                                     if (errosConsecutivosX == 2) {
@@ -388,7 +388,7 @@ public class Jogo {
                                                     errosConsecutivosO = 0;
                                         }
                                 }
-                                cronometro.pararCronometro(); //Crônometro para se a pergunta der erro
+                                cronometro.pararCronometro(); //crônometro para se a pergunta der erro
                                 
                             }
 
@@ -397,12 +397,12 @@ public class Jogo {
                             tabuleiroJogoDaVelha.mostrarTabuleiro();
                                 System.out.println("O jogo deu velha! Por isso será reiniciado.");
                                                                 
-                            //Após o reinicio do jogo, as moedas dos jogadores são devolvidas se forem utilizadas:
+                            //após o reinicio do jogo, as moedas dos jogadores são devolvidas se forem utilizadas:
                             moedasJogador1 = 30;
                                 moedasJogador2 = 30;
                                     jogando = false;
                             } else {
-                                jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X'; //Os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
+                                jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X'; //os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
                             }
             }
         }

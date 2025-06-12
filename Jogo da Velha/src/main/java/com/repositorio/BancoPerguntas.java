@@ -2,11 +2,12 @@ package com.repositorio;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+
 import com.Explicacao;
 import com.Perguntas;
 public class BancoPerguntas {
     
-    //Método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
+    //método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
     public static String lerEntrada (Scanner scanner) {
         String entrada = scanner.nextLine();
             if (entrada.equals ("/")) {
@@ -20,9 +21,7 @@ public class BancoPerguntas {
     private ArrayList<Perguntas> perguntasIntermediario;
     private ArrayList<Perguntas> perguntasAvancado;
     private Random random;
-    private String resposta;
     private Thread cronometro;
-    private String explicacao;
 
 public BancoPerguntas() {
     perguntasIniciante = new ArrayList<>();
@@ -36,8 +35,8 @@ public BancoPerguntas() {
     //Atributo para inicializar as perguntas:
     private void inicializarPerguntas() {
         Explicacao explicacao = new Explicacao("");
-         //Perguntas para o nível iniciante:
-        //Perguntas do capítulo 8 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
+         //perguntas para o nível iniciante:
+        //perguntas do capítulo 8 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
             Perguntas pergunta1 = new Perguntas("1- Em um método de instância, qual palavra-chave pode ser usada para fazer referência explícita ao objeto atual (a instância em que o método está sendo chamado)? Página do Livro: 252.\n", 
                                         new String[] {"a) self.\r\n", "b) current.\r\n", "c) this.\r\n", "d) instance.\r\n"},
                                             3, "Iniciante", "", "", null, false);
@@ -87,7 +86,7 @@ public BancoPerguntas() {
                                             " do menor privilégio, que busca restringir alterações indevidas a dados sensíveis ou críticos.\n");
                                             perguntasIniciante.add(pergunta5);
 
-        //Perguntas do capítulo 9 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
+        //perguntas do capítulo 9 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
             Perguntas pergunta6 = new Perguntas("6- Qual conceito de Programação Orientada a Objetos permite que uma nova classe (subclasse) adquira os membros (atributos e métodos) de uma classe existente (superclasse)," +
                                                 " promovendo a reutilização de código? Página do Livro: 284.\n",
                                         new String[] {"a) Herança.\r\n", "b) Polimorfismo.\r\n", "c) Abstração.\r\n", "d) Encapsulamento.\r\n"},
@@ -131,7 +130,7 @@ public BancoPerguntas() {
                                             "Permite que o código comum seja escrito apenas uma vez." + "\n");
                                             perguntasIniciante.add(pergunta10);
 
-        //Perguntas do capítulo 10 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
+        //perguntas do capítulo 10 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
             Perguntas pergunta11 = new Perguntas("11- O que é uma classe abstrata em Java? Páginas do Livro: 316 e 317.\n",
                                         new String[] {"a) Classe que não pode ser instânciada diretamente.\r\n", "b) Classe que não implementa todos os dados.\r\n", "c) Classe que só possui métodos privados.\r\n", "d) Classe que não pode ter atributos.\r\n"},
                                             1, "Iniciante", "", "", null, false);
@@ -182,8 +181,8 @@ public BancoPerguntas() {
                                             " flexíveis, onde novas classes podem ser adicionadas com pouca ou nenhuma alteração do código já existente. Significa \"muitas formas\".\n");
                                             perguntasIniciante.add(pergunta15);
 
-         //Perguntas para o nível intermediário:
-        //Perguntas do capítulo 8 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
+         //perguntas para o nível intermediário:
+        //perguntas do capítulo 8 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
             Perguntas pergunta16 = new Perguntas("16- Quais são os nomes comuns para os pares de métodos usados para controlar o acesso de leitura e escrita a variáveis de instância que foram declaradas como privadas? Página do Livro: 259.\n",
                                             new String[] {"a) Readers e writers.\r\n", "b) Acessors e Mutators.\r\n", "c) Getters e Setters.\r\n", "d) Load e Save.\r\n"},
                                                 3, "Intermediário", "", "", null, false);
@@ -239,7 +238,7 @@ public BancoPerguntas() {
                                                 " criadas ou no fornecimento de utilitários matemáticos.\n");
                                                 perguntasIntermediario.add(pergunta20);
         
-        //Perguntas do capítulo 9 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
+        //perguntas do capítulo 9 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
             Perguntas pergunta21 = new Perguntas("21- Explique a diferença conceitual entre o relacionamento \"é um\" (is-a) e o relacionamento \"tem um\" (has-a) no contexto de classes e objetos. Página do Livro: 284.\n",
                                             new String[] {"a) Ambos significam herança.\r\n", "b) 'É um' é uma composição e 'tem um' é uma herança.\r\n", "c) Não há diferença entre eles.\r\n", "d) 'É um' se refere à herança e 'tem um' se refere à composição.\r\n"},
                                                 4, "Intermediário", "", "", null, false);
@@ -291,7 +290,7 @@ public BancoPerguntas() {
                                                 " pelos argumentos do construtor da superclasse.\n");
                                                 perguntasIntermediario.add(pergunta25);
 
-        //Perguntas do capítulo 10 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
+        //perguntas do capítulo 10 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
             Perguntas pergunta26 = new Perguntas("26- Como é chamado o processo em que o método específico a ser executado é determinado em tempo de execução, com base no tipo real do objeto referenciado," +
                                                 " e não em tempo de compilação? Páginas do Livro: 313 a 316.\n",
                                             new String[] {"a) Vinculação estática.\r\n", "b) Vinculação dinâmica.\r\n", "c) Encadeamento.\r\n", "d) Overloading.\r\n"},
@@ -343,8 +342,8 @@ public BancoPerguntas() {
                                                 " não poderá ser instanciada diretamente e servirá apenas como superclasse.\n");
                                                 perguntasIntermediario.add(pergunta30);
 
-         //Perguntas para o nível avançado:
-        //Perguntas do capítulo 8 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
+         //perguntas para o nível avançado:
+        //perguntas do capítulo 8 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
             Perguntas pergunta31 = new Perguntas("31- Para acessar um membro public static de uma classe, como Math.PI ou Math.random(), qual sintaxe é comumente usada, mesmo que não haja objetos da classe instanciados? Página do Livro: 259.\n",
                                             new String[] {"a) objeto.membro \r\n", "b) this.membro \r\n", "c) NomeClasse.membro \r\n", "d) static.membro \r\n"},
                                                 3, "Avançado", "", "", null, false);
@@ -384,7 +383,7 @@ public BancoPerguntas() {
                                                 " além de fornecer métodos para controlar o arredondamento e a escala dos números.\n");
                                                 perguntasAvancado.add(pergunta34);
 
-        //Perguntas do capítulo 9 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
+        //perguntas do capítulo 9 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
             Perguntas pergunta35 = new Perguntas("35- Se um método sobrescrito em uma subclasse necessita executar parte da lógica implementada na versão da superclasse, como ele pode chamar explicitamente" +
                                                 " o método da superclasse? Página do Livro: 284 a 287.\n",
                                             new String[] {"a) parent.NomeDoMetrodo().\r\n", "b) super.NomeDoMetodo().\r\n", "c) base.nomeDoMetodo().\r\n", "d) thi.nomeDoMetodo().\r\n"},
@@ -422,7 +421,7 @@ public BancoPerguntas() {
                                                 " comparar o conteúdo armazenado.\n");
                                                 perguntasAvancado.add(pergunta38);
 
-        //Perguntas do capítulo 10 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
+        //perguntas do capítulo 10 do livro "Java: Como Programar" de Deitel e Deitel, 10ª edição:
             Perguntas pergunta39 = new Perguntas("39- Interfaces são particularmente úteis para permitir o processamento polimórfico de quais tipos de classes? Página do Livro: 338.\n",
                                             new String[] {"a) Classes não relacionadas que compartilham funcionalidades.\r\n", "b) Apenas classes abstratas.\r\n", "c) Apenas subclasses de uma mesma classe.\r\n", "d) Apenas classes completas.\r\n"},
                                                 1, "Avançado", "", "", null, false);
@@ -483,7 +482,7 @@ public BancoPerguntas() {
             }
             if (listaPerguntas.isEmpty()) {
                 System.out.println("\nNão há perguntas cadastradas para esta dificuldade.");
-                    return null; //Retorna null se não houver perguntas cadastradas para a dificuldade especificada
+                    return null; //retorna null se não houver perguntas cadastradas para a dificuldade especificada
             }
             return listaPerguntas.get(random.nextInt(listaPerguntas.size()));
     }

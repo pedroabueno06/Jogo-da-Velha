@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 public class Perguntas {
-    //Método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
+    //método para o jogador encerrar o jogo om a tecla "/" em qualquer momento do jogo:
     public static String lerEntrada (Scanner scanner) {
         String entrada = scanner.nextLine();
             if (entrada.equals ("/")) {
@@ -14,7 +14,7 @@ public class Perguntas {
             return entrada;
         }
 
-    //Atributos:
+    //atributos:
     private String pergunta;
     private String[] alternativas;
     private int respostaCorreta;
@@ -90,7 +90,7 @@ public class Perguntas {
         this.usouDica = usou;
     }
 
-    //Sistema de dicas:
+    //sistema de dicas:
     public boolean Dica (int numDica, int moedas, boolean PodeUsarDica) {
         if (!PodeUsarDica) {
             System.out.println("Você não pode utilizar as dicas nesta rodada!");
@@ -130,14 +130,14 @@ public class Perguntas {
         int removidas = 0;
         List<Integer> indicesIncorretos = new ArrayList<>();
 
-        //Remove as alternativas incorretas:
+        //remove as alternativas incorretas:
         for (int i = 0; i < alternativas.length; i++) {
             if (i + 1 != respostaCorreta) {
                 indicesIncorretos.add(i);
             }
         }
 
-        //Remove as alternativas de forma aleatória:
+        //remove as alternativas de forma aleatória:
         while (removidas < RemoverAlternativas && !indicesIncorretos.isEmpty()) {
             int idx = random.nextInt(indicesIncorretos.size());
             int removerIndice = indicesIncorretos.get(idx);
@@ -151,13 +151,13 @@ public class Perguntas {
     public boolean fazerPergunta(Scanner scanner, boolean PodeUsarDica, int moedas) {
             System.out.println(pergunta);
             
-            //Mostra as alternativas da questão
+            //mostra as alternativas da questão
             for (int i = 0; i < alternativas.length; i++) {
                 System.out.println((i+1) + ") " + alternativas[i]);
             }
 
             while (true) {
-                //Oferece ao usuário, a opção de receber explicações sobre a pergunta ou apenas responde-la:
+                //oferece ao usuário, a opção de receber explicações sobre a pergunta ou apenas responde-la:
                 System.out.println("Digite 0 se quiser receber explicações sobre a questão, 1 se quiser utilizar as dicas ou 2 para responder a pergunta:");
                     resposta = lerEntrada (scanner);
 
@@ -173,7 +173,7 @@ public class Perguntas {
                     } 
                         
                     
-                }    //Verifica se o jogador está tentando utilizar a dica por duas rodadas consecutivas:
+                }    //verifica se o jogador está tentando utilizar a dica por duas rodadas consecutivas:
                     else if (resposta.equals("1")) {
                         if (usouDica) {
                             System.out.println("\nVocê não pode utilizar uma dicas em duas rodadas consecutivas!");
@@ -194,31 +194,52 @@ public class Perguntas {
                                 if (resposta.equals("1")) {
                                     System.out.println("\nDica escolhida: Dica 1.");
                                         if (Dica(1, moedas, PodeUsarDica)) {
-                                            //Preço das dicas:
+                                            //preço das dicas:
                                                 int custoDica = 5;
                                                     int subtracao = moedas - custoDica;
-                                                        //Mostra com quantas moedas o jogador ficou após comprar uma das dicas:
+                                                        //mostra com quantas moedas o jogador ficou após comprar uma das dicas:
                                                             System.out.println("Vcoê ficou com " + subtracao + " moedas.");
+
+                                                            //faz com que a questão apareça novamente caso o usuário recorra as dicas:
+                                                            System.out.println("\n===PERGUNTA===");
+                                                                System.out.println(pergunta);
+                                                                    for (int i = 0; i < alternativas.length; i++) {
+                                                                        System.out.println((i+1) + ") " + alternativas[i]);
+                                                                }
                                     }
                                     
                                 } else if (resposta.equals("2")) {
                                     System.out.println("\nDica escolhida: Dica 2.");
                                         if (Dica(2, moedas, PodeUsarDica)) {
-                                            //Preço das dicas:
+                                            //preço das dicas:
                                                 int custoDica = 10;
                                                     int subtracao = moedas - custoDica;
-                                                        //Mostra com quantas moedas o jogador ficou após comprar uma das dicas:
+                                                        //mostra com quantas moedas o jogador ficou após comprar uma das dicas:
                                                             System.out.println("Vcoê ficou com " + subtracao + " moedas.");
+
+                                                            //faz com que a questão apareça novamente caso o usuário recorra as dicas:
+                                                            System.out.println("\n===PERGUNTA===");
+                                                                System.out.println(pergunta);
+                                                                    for (int i = 0; i < alternativas.length; i++) {
+                                                                        System.out.println((i+1) + ") " + alternativas[i]);
+                                                                }
                                         }
 
                                 } else if (resposta.equals("3")) {
                                     System.out.println("\nDica escolhida: Dica 3.");
                                         if (Dica(3, moedas, PodeUsarDica)) {
-                                            //Preço das dicas:
+                                            //preço das dicas:
                                                 int custoDica = 10;
                                                     int subtracao = moedas - custoDica;
-                                                        //Mostra com quantas moedas o jogador ficou após comprar uma das dicas:
+                                                        //mostra com quantas moedas o jogador ficou após comprar uma das dicas:
                                                             System.out.println("Vcoê ficou com " + subtracao + " moedas.");
+
+                                                            //faz com que a questão apareça novamente caso o usuário recorra as dicas:
+                                                            System.out.println("\n===PERGUNTA===");
+                                                                System.out.println(pergunta);
+                                                                    for (int i = 0; i < alternativas.length; i++) {
+                                                                        System.out.println((i+1) + ") " + alternativas[i]);
+                                                                }
                                         }
 
                                 } else {
@@ -239,9 +260,9 @@ public class Perguntas {
                         this.usouDica = true;
                         continue;
                 
-                // Caso o usuário queira responder a pergunta sem recorrer as explicações ou dicas:
+                //caso o usuário queira responder a pergunta sem recorrer as explicações ou dicas:
                 } else if (resposta.equals("2")) {
-                    System.out.println("Digite o número da resposta (1-" + alternativas.length + "):");
+                    System.out.println("\nDigite o número da resposta (1-" + alternativas.length + "):");
                     resposta = lerEntrada (scanner);
 
                     try {
@@ -251,13 +272,14 @@ public class Perguntas {
                     }
                 }
                                         
-                    //Faz com que a questão apareça novamente caso o usuário recorra as explicações ou dicas::
-                        System.out.println("\n" + pergunta);
+                    //faz com que a questão apareça novamente caso o usuário recorra as explicações:
+                    System.out.println("\n===PERGUNTA===");
+                        System.out.println(pergunta);
                             for (int i = 0; i < alternativas.length; i++) {
                                 System.out.println((i+1) + ") " + alternativas[i]);
                             }
             
-                System.out.println("Digite o número da resposta (1-" + alternativas.length + "):");
+                System.out.println("\nDigite o número da resposta (1-" + alternativas.length + "):");
                     resposta = lerEntrada (scanner);
 
                     try {
