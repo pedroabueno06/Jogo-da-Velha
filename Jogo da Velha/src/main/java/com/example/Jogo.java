@@ -3,6 +3,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import com.Cronometro1;
+import com.Cronometro2;
 import com.Perguntas;
 import com.repositorio.BancoPerguntas;
 import com.repositorio.service.TabuleiroJogoDaVelha;
@@ -101,7 +102,6 @@ public class Jogo {
                         System.out.println("\nOpção inválida!");
                             System.out.println("Digite apenas 0, 1 ou /: ");
                                 acao1 = lerEntrada(scanner);
-
 
                 } while (!acao1.equals("0") && !acao1.equals("1"));
 
@@ -254,6 +254,7 @@ public class Jogo {
                             boolean jogando = true;
 
                             Cronometro1 cronometro = new Cronometro1();
+                            Cronometro2 cronometro2 = new Cronometro2();
 
                             while (jogando) {
                             System.out.println("\nEstado atual do tabuleiro:");
@@ -261,19 +262,19 @@ public class Jogo {
 
                             //mostrar o personagem que cada jogador escolheu:
                             System.out.println("Jogador 1: " + nomeJogador + " - " + "(" + escolhaJogador1 + ")"  + ".");
-                            System.out.println("Jogador 2: Anna - (" + escolhaJogador2 + ")" + ".");
+                                System.out.println("Jogador 2: Anna - (" + escolhaJogador2 + ")" + ".");
 
                             //mostra quem é o jogador da vez:
                             System.out.println("\nVez do " + getPersonagem(jogadorAtual, escolhaJogador1, escolhaJogador2) + ":");
 
                             //inicia o crônometro para o jogador responder a pergunta e fazer sua jogada:
                             System.out.println("Você tem 1 minuto para responder a pergunta e fazer sua jogada!");
-                                cronometro.iniciar();
+                                cronometro.iniciar2();
 
                             //verificação de tempo antes de processar a resposta:
-                            if (cronometro.tempoEsgotado()) {
-                                cronometro.Enter();
-                                    cronometro.pararCronometro();
+                            if (cronometro.tempoEsgotado1()) {
+                                cronometro.Enter1();
+                                    cronometro.pararCronometro1();
                                         jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X'; //os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
                                             continue;
                             }
@@ -294,7 +295,7 @@ public class Jogo {
 
                             if (perguntasAtual == null) {
                                 System.out.println("Erro ao carregar pergunta. Tente novamente");
-                                    cronometro.pararCronometro(); //crônometro para se a pergunta der erro
+                                    cronometro.pararCronometro1(); //crônometro para se a pergunta der erro
                                         continue;
                             }
 
@@ -302,12 +303,12 @@ public class Jogo {
 
                             System.out.println("\n=== PERGUNTA ===");
                                 int moedasJogadorAtual = (jogadorAtual == 'X') ? moedasJogador1 : moedasJogador2;
-                                    boolean respostaCorreta = perguntasAtual.fazerPergunta(scanner, podeUsarDicaAtual, moedasJogadorAtual);
+                                    boolean respostaCorreta = perguntasAtual.fazerPergunta(scanner, podeUsarDicaAtual, moedasJogadorAtual, cronometro);
                                                         
                             //verificação de tempo antes de processar a resposta:
-                            if (cronometro.tempoEsgotado()) {
-                                cronometro.Enter();
-                                    cronometro.pararCronometro();
+                            if (cronometro.tempoEsgotado1()) {
+                                cronometro.Enter1();
+                                    cronometro.pararCronometro1();
                                         jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X'; //os operádores ternários ? e : são substitutos dos operadores concidcionais if/else
                                             continue;
                             }
@@ -343,7 +344,7 @@ public class Jogo {
                                                             
                                 System.out.println("\nDigite a coluna do tabueleiro que deseja marcar (0-" + (tabuleiroJogoDaVelha.getTamanho()-1) + "):");
                                     int coluna = Integer.parseInt (lerEntrada (scanner)); //integer está encapsulando o valor int e transformando em um objeto
-                                        cronometro.pararCronometro(); //crônometro para se a pergunta der erro
+                                        cronometro.pararCronometro1(); //crônometro para se a pergunta der erro
 
                                 //armazena a jogada de cada um dos jogadores:
                                 if (tabuleiroJogoDaVelha.realizarJogada(linha, coluna, jogadorAtual)) {
@@ -388,7 +389,7 @@ public class Jogo {
                                                     errosConsecutivosO = 0;
                                         }
                                 }
-                                cronometro.pararCronometro(); //crônometro para se a pergunta der erro
+                                cronometro.pararCronometro1(); //crônometro para se a pergunta der erro
                                 
                             }
 
