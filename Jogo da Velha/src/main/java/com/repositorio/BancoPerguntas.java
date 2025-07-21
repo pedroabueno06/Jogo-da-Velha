@@ -41,7 +41,7 @@ public BancoPerguntas() {
                                         new String[] {"a) self.\r\n", "b) current.\r\n", "c) this.\r\n", "d) instance.\r\n"},
                                             3, "Iniciante", "", "", null, false);
                                                 pergunta1.setExplicacao("=== Explicações sobre a pergunta 1: ===\n" +
-                                                "\na linguagem de programação “Java”, quando um método de instância é executado, o mesmo manipula as variáveis e chama outros métodos associados ao objeto que o invocou." +
+                                                "\na linguagem de programação 'Java', quando um método de instância é executado, o mesmo manipula as variáveis e chama outros métodos associados ao objeto que o invocou." +
                                                 "Quando há ambiguidade entre variáveis locais e variáveis de instância com o mesmo nome, além disso, utiliza-se um recurso que faz com que possamos diferenciar claramente qual " + 
                                                 " elemento está sendo referenciado. Este recurso é especialmente útil em construtores, onde parâmetros frequentemente possuem os mesmo nomes das variáveis de instância. Além disso," + 
                                                 " cada objeto possui sua própria cópia de variáveis, enquanto os métodos são compartilhados por todos os objetos da mesma classe.\n");
