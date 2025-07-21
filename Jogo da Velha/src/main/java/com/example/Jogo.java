@@ -75,7 +75,7 @@ public class Jogo {
                 System.out.println("10- Para realizar a marcação no tabuleiro, é necessário responder uma pergunta que envolve 4 alternativas selecionada aleatoriamente pelo sistema sobre");
                 System.out.println("   os conteúdos que estão em um dos três capítulos já pré-definidios do livro Java: Como Programar.\n");
                 System.out.println("11- Cada jogador terá até um minuto para responder cada pergunta e mais cinco minutos caso deseje ler as breves explicações que estarão nas caixas de texto,");
-                System.out.println("    mas ao acionar a caixa de texto, o seu tempo para responder a pergunta será paralisado e iniciado do ponto em que parou após a leitura.\n");
+                System.out.println("    mas ao acionar a caixa de texto, o seu tempo para responder a pergunta será paralisado e iniciado novamente após a leitura.\n");
                 System.out.println("12- Em caso do jogador ter acertado uma das perguntas e errar as próximas duas perguntas de forma consecutiva, o sistema irá retirar a ultima marcação que o jogador realizou no tauleiro.\n");
                 System.out.println("13- Em caso de um dos jogadores não souber tiver conhecimento sobre o assunto de uma das perguntas, ele pode ou reccorrer ao sistema de dicas ou as explicações");
                 System.out.println("    que nelas haverão breves esclarecimentos sobre o conteúdo das perguntas.\n");
