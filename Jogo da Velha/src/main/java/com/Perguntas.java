@@ -148,7 +148,9 @@ public class Perguntas {
         return true;
     }
 
-    public boolean fazerPergunta(Scanner scanner, boolean PodeUsarDica, int moedas) {
+    Cronometro2 cronometro2 = new Cronometro2();
+
+    public boolean fazerPergunta(Scanner scanner, boolean PodeUsarDica, int moedas, Cronometro1 cronometro1) {
             System.out.println(pergunta);
             
             //mostra as alternativas da questão
@@ -165,8 +167,12 @@ public class Perguntas {
                     if (explicacao != null) {
                         System.out.println("\nVocê tem 5 minutos para ler as explicações sobre a pergunta em questão:");
                         System.out.println(explicacao);
+                        cronometro1.pararCronometro1();
+                        cronometro2.iniciar2();
                         System.out.println("Pressione ENTER para continuar.");
                         resposta = lerEntrada(scanner);
+                        cronometro2.pararCronometro2();
+                        cronometro1.iniciar1(60); //reinicia o cronômetro de 1 minuto
                     } else {
                         System.out.println("\nNão há explicações referentes a esta pergunta.");
                     
